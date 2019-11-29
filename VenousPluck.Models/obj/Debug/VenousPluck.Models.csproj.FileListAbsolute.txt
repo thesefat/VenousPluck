@@ -1,0 +1,11 @@
+D:\Projects\VenousPluck\VenousPluck.Models\bin\Debug\VenousPluck.Models.dll.config
+D:\Projects\VenousPluck\VenousPluck.Models\bin\Debug\VenousPluck.Models.dll
+D:\Projects\VenousPluck\VenousPluck.Models\bin\Debug\VenousPluck.Models.pdb
+D:\Projects\VenousPluck\VenousPluck.Models\bin\Debug\EntityFramework.dll
+D:\Projects\VenousPluck\VenousPluck.Models\bin\Debug\EntityFramework.SqlServer.dll
+D:\Projects\VenousPluck\VenousPluck.Models\bin\Debug\EntityFramework.xml
+D:\Projects\VenousPluck\VenousPluck.Models\bin\Debug\EntityFramework.SqlServer.xml
+D:\Projects\VenousPluck\VenousPluck.Models\obj\Debug\VenousPluck.Models.csprojAssemblyReference.cache
+D:\Projects\VenousPluck\VenousPluck.Models\obj\Debug\VenousPluck.Models.csproj.CopyComplete
+D:\Projects\VenousPluck\VenousPluck.Models\obj\Debug\VenousPluck.Models.dll
+D:\Projects\VenousPluck\VenousPluck.Models\obj\Debug\VenousPluck.Models.pdb

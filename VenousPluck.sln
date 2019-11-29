@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29509.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VenousPluck", "VenousPluck.csproj", "{9DF2332E-9FB3-42F0-A83D-4E69C82CC4AE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VenousPluck.Persistance", "VenousPluck.Persistance\VenousPluck.Persistance.csproj", "{D1CCDD50-A48D-446D-8EDF-76B38ACB23AF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VenousPluck.Models", "VenousPluck.Models\VenousPluck.Models.csproj", "{2FCBF9BD-C189-41BE-9B95-A2E8302D6457}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VenousPluck.Manager", "VenousPluck.Manager\VenousPluck.Manager.csproj", "{E868F392-3975-42F0-A8B2-EE6B3CAAE4BC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VenousPluck.Repository", "VenousPluck.Repository\VenousPluck.Repository.csproj", "{21E53C00-827F-474A-A995-4D21D817B91D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9DF2332E-9FB3-42F0-A83D-4E69C82CC4AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9DF2332E-9FB3-42F0-A83D-4E69C82CC4AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9DF2332E-9FB3-42F0-A83D-4E69C82CC4AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9DF2332E-9FB3-42F0-A83D-4E69C82CC4AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1CCDD50-A48D-446D-8EDF-76B38ACB23AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1CCDD50-A48D-446D-8EDF-76B38ACB23AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1CCDD50-A48D-446D-8EDF-76B38ACB23AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1CCDD50-A48D-446D-8EDF-76B38ACB23AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FCBF9BD-C189-41BE-9B95-A2E8302D6457}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FCBF9BD-C189-41BE-9B95-A2E8302D6457}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FCBF9BD-C189-41BE-9B95-A2E8302D6457}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FCBF9BD-C189-41BE-9B95-A2E8302D6457}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E868F392-3975-42F0-A8B2-EE6B3CAAE4BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E868F392-3975-42F0-A8B2-EE6B3CAAE4BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E868F392-3975-42F0-A8B2-EE6B3CAAE4BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E868F392-3975-42F0-A8B2-EE6B3CAAE4BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{21E53C00-827F-474A-A995-4D21D817B91D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21E53C00-827F-474A-A995-4D21D817B91D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21E53C00-827F-474A-A995-4D21D817B91D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21E53C00-827F-474A-A995-4D21D817B91D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A9A44B28-2427-476E-94FB-075FD358E74C}
+	EndGlobalSection
+EndGlobal

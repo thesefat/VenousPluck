@@ -1,0 +1,17 @@
+D:\Projects\VenousPluck\VenousPluck.Repository\bin\Debug\VenousPluck.Repository.dll.config
+D:\Projects\VenousPluck\VenousPluck.Repository\bin\Debug\VenousPluck.Repository.dll
+D:\Projects\VenousPluck\VenousPluck.Repository\bin\Debug\VenousPluck.Repository.pdb
+D:\Projects\VenousPluck\VenousPluck.Repository\bin\Debug\EntityFramework.dll
+D:\Projects\VenousPluck\VenousPluck.Repository\bin\Debug\EntityFramework.SqlServer.dll
+D:\Projects\VenousPluck\VenousPluck.Repository\bin\Debug\EntityFramework.xml
+D:\Projects\VenousPluck\VenousPluck.Repository\bin\Debug\EntityFramework.SqlServer.xml
+D:\Projects\VenousPluck\VenousPluck.Repository\obj\Debug\VenousPluck.Repository.csproj.CopyComplete
+D:\Projects\VenousPluck\VenousPluck.Repository\obj\Debug\VenousPluck.Repository.dll
+D:\Projects\VenousPluck\VenousPluck.Repository\obj\Debug\VenousPluck.Repository.pdb
+D:\Projects\VenousPluck\VenousPluck.Repository\bin\Debug\VenousPluck.Manager.dll
+D:\Projects\VenousPluck\VenousPluck.Repository\bin\Debug\VenousPluck.Models.dll
+D:\Projects\VenousPluck\VenousPluck.Repository\bin\Debug\VenousPluck.Manager.pdb
+D:\Projects\VenousPluck\VenousPluck.Repository\bin\Debug\VenousPluck.Manager.dll.config
+D:\Projects\VenousPluck\VenousPluck.Repository\bin\Debug\VenousPluck.Models.pdb
+D:\Projects\VenousPluck\VenousPluck.Repository\bin\Debug\VenousPluck.Models.dll.config
+D:\Projects\VenousPluck\VenousPluck.Repository\obj\Debug\VenousPluck.Repository.csprojAssemblyReference.cache
