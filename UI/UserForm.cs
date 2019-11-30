@@ -14,7 +14,9 @@ namespace VenousPluck.UI
 {
     public partial class UserForm : Form
     {
-
+        public string ImageFile = "No_Image.jpg";
+        User user = new User();
+       
 
         private readonly UserManager _userManager;
 
@@ -22,6 +24,7 @@ namespace VenousPluck.UI
         {
             InitializeComponent();
             _userManager = new UserManager();
+            
         }
 
         #region Image
@@ -62,25 +65,25 @@ namespace VenousPluck.UI
         #endregion
 
 
-        public string ImageFile = "No_Image.jpg";
 
+
+
+        #region Create User
         private void UserCreateButton_Click(object sender, EventArgs e)
         {
 
-            User user = new User()
-            {
+            user.FirstName = userFirstNameTextBox.Text;
+            user.LastName = userLastNameTextBox.Text;
+            user.UserName = userNameTextBox.Text;
+            user.Password = userPasswordTextBox.Text;
+            user.Email = userEmailTextBox.Text;
+            user.UserAddress = userAddressTextBox.Text;
+            user.AddedDate = DateTime.Now;
+            user.BloodGroup = userBloodGroupTextBox.Text;
+            user.ContactNo = userContactNoTextBox.Text;
+            user.Image = ImageFile;
 
-                FirstName = userFirstNameTextBox.Text,
-                LastName = userLastNameTextBox.Text,
-                UserName = userNameTextBox.Text,
-                Password = userPasswordTextBox.Text,
-                Email = userEmailTextBox.Text,
-                UserAddress = userAddressTextBox.Text,
-                AddedDate = DateTime.Now,
-                BloodGroup = userBloodGroupTextBox.Text,
-                ContactNo = userContactNoTextBox.Text,
-                Image = ImageFile
-            };
+
 
             if (UserCreateButton.Text == "Update")
             {
@@ -91,9 +94,11 @@ namespace VenousPluck.UI
                     if (isUpdate)
                     {
                         MessageBox.Show($"User Update successfully of {user.FirstName + " " + user.LastName}");
+                        DataSourceUpdate();
+                        ClearForm();
                     }
                     UserCreateButton.Text = "Create";
-                    UserUpdateButton.Show();
+
                     return;
 
                 }
@@ -104,32 +109,140 @@ namespace VenousPluck.UI
                 }
                
             }
-           
 
+
+
+            #region User Create
             if (UserCreateButton.Text == "Create")
             {
+              
+
                 var isAdded = _userManager.Add(user);
                 if (isAdded)
                 {
                     MessageBox.Show($"User created successfully of {user.FirstName + " " + user.LastName}");
+                    DataSourceUpdate();
                     ClearForm();
                     return;
                 }
             }
+            #endregion
 
             MessageBox.Show("Operation Failed");
 
         }
+        #endregion
 
-        private void UserUpdateButton_Click(object sender, EventArgs e)
-        {
-            UserUpdateButton.Hide();
-            UserCreateButton.Text = "Update";
+
+        #region DataSourceUpdate
+        public void DataSourceUpdate() {
+            var datalist = _userManager.GetAllUser();
+            usersBindingSource.DataSource = null;
+            usersBindingSource.DataSource = datalist;
         }
 
+        #endregion
+
+
+
+        #region  Single Mouse Click Event
+        //private void UserUpdateButton_Click(object sender, EventArgs e)
+        //{
+        //    UserUpdateButton.Hide();
+        //    UserCreateButton.Text = "Update";
+        //}
+        #endregion
+
+        #region Application Close
         private void PictureBoxClose_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        #endregion
+
+        #region Automatic Table Loader
+        private void UserForm_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'venousPluckDataSet.Users' table. You can move, or remove it, as needed.
+
+            DataSourceUpdate();
+
+           // this.usersTableAdapter.Fill(this.venousPluckDataSet.Users);
+
+        }
+        #endregion
+
+        //private void UserDataGridView_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        //{
+        //    int rowIndex = e.RowIndex;
+        //    userFirstNameTextBox.Text = userDataGridView.Rows[rowIndex].Cells[1].Value.ToString();
+        //    userLastNameTextBox.Text = userDataGridView.Rows[rowIndex].Cells[2].Value.ToString();
+        //    userContactNoTextBox.Text = userDataGridView.Rows[rowIndex].Cells[4].Value.ToString();
+        //    userNameTextBox.Text = userDataGridView.Rows[rowIndex].Cells[6].Value.ToString();
+        //    userPasswordTextBox.Text = userDataGridView.Rows[rowIndex].Cells[3].Value.ToString();
+        //    userEmailTextBox.Text = userDataGridView.Rows[rowIndex].Cells[10].Value.ToString();
+        //    userAddressTextBox.Text = userDataGridView.Rows[rowIndex].Cells[5].Value.ToString();
+        //    userBloodGroupTextBox.Text = userDataGridView.Rows[rowIndex].Cells[8].Value.ToString();
+
+        //    UserCreateButton.Text = "Update";
+        //}
+
+
+        #region Form Fill Up By Selected User 
+        public void FormFillUpBySelectedUser( User user )
+        {
+
+            userFirstNameTextBox.Text = user.FirstName;
+            userLastNameTextBox.Text = user.LastName;
+            userNameTextBox.Text = user.UserName;
+            userPasswordTextBox.Text = user.Password;
+            userEmailTextBox.Text = user.Email;
+            userAddressTextBox.Text = user.UserAddress;
+            userBloodGroupTextBox.Text = user.BloodGroup;
+            userContactNoTextBox.Text = user.ContactNo;
+            userPictureBox = null;
+        }
+        #endregion
+
+
+        #region Selected User in Update Form
+        private void UserDataGridView_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            int rowIndex = e.RowIndex;
+            string getId = userDataGridView.Rows[rowIndex].Cells[0].Value.ToString();
+
+            user =  _userManager.GetUserById(Convert.ToInt64(getId));
+
+
+            FormFillUpBySelectedUser(user);
+
+            UserCreateButton.Text = "Update";
+            UserDeleteButton.Show();
+
+        
+        }
+
+        #endregion
+
+        //private void UserUpdateButton_Click(object sender, EventArgs e)
+        //{
+           
+        //    UserUpdateButton.Hide();
+        //}
+
+        private void UserDeleteButton_Click(object sender, EventArgs e)
+        {
+
+            if (MessageBox.Show("Are You Sure to Delete This Record ?","Venous Pluck",MessageBoxButtons.YesNoCancel)==DialogResult.Yes)
+            {
+                _userManager.Remove(user);
+                DataSourceUpdate();
+                ClearForm();
+                UserDeleteButton.Hide();
+                UserCreateButton.Text = "Create";
+                return;
+            }
         }
     }
 }

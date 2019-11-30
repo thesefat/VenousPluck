@@ -201,7 +201,7 @@ namespace VenousPluck {
         private void InitClass() {
             this.DataSetName = "VenousPluckDataSet";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/VenousPluckDataSet1.xsd";
+            this.Namespace = "http://tempuri.org/VenousPluckDataSet4.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
             this.tableUsers = new UsersDataTable();

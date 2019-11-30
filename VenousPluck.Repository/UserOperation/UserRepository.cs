@@ -30,7 +30,10 @@ namespace VenousPluck.Repository.UserOperation
             return false;
         }
 
-
+        public User GetUserById(long id)
+        {
+            return _db.Users.FirstOrDefault(c => c.Id == id);
+        }
 
         public bool Update(User model)
         {
@@ -48,6 +51,33 @@ namespace VenousPluck.Repository.UserOperation
                 throw new Exception(ex.Message);
             }
 
+        }
+
+        public ICollection<User> GetAllUsers()
+        {
+            return _db.Users.ToList();
+        }
+
+        public bool Remove(User model)
+        {
+            try
+            {
+                //entity = _db.PurchaseDetails.Find(entity.Id);
+                _db.Users.Remove(model);
+                return _db.SaveChanges() > 0;
+            }
+            catch (Exception e)
+            {
+                var msg = "not found in the ObjectStateManager";
+                if (e.Message.ToLower().Contains(msg.ToLower()))
+                {
+                    _db.Users.Attach(model);
+                    _db.Users.Remove(model);
+                    return _db.SaveChanges() > 0;
+                }
+
+            }
+            return false;
         }
     }
 }

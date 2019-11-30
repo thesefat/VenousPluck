@@ -78,6 +78,11 @@
     <Compile Include="UI\UserForm.Designer.cs">
       <DependentUpon>UserForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="VenousPluckDataSet4.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VenousPluckDataSet4.xsd</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="UI\HomeForm.resx">
       <DependentUpon>HomeForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -105,6 +110,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="VenousPluckDataSet4.xsc">
+      <DependentUpon>VenousPluckDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="VenousPluckDataSet4.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>VenousPluckDataSet4.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="VenousPluckDataSet4.xss">
+      <DependentUpon>VenousPluckDataSet4.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

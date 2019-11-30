@@ -1,0 +1,2 @@
+D:\Projects\VenousPluck\Demo\obj\Debug\VenousPluck.UI.UserForm.resources
+D:\Projects\VenousPluck\Demo\obj\Debug\Demo.csproj.GenerateResource.cache

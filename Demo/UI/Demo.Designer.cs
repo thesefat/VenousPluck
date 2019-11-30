@@ -54,8 +54,14 @@
             this.button1 = new System.Windows.Forms.Button();
             this.UserImageChooseButton = new System.Windows.Forms.Button();
             this.UserCreateButton = new System.Windows.Forms.Button();
+            this.UserUpdateButton = new System.Windows.Forms.Button();
             this.UserDeleteButton = new System.Windows.Forms.Button();
             this.userDataGridView = new System.Windows.Forms.DataGridView();
+            this.label12 = new System.Windows.Forms.Label();
+            this.userSearchTextBox = new System.Windows.Forms.TextBox();
+            this.venousPluckDataSet = new VenousPluck.VenousPluckDataSet();
+            this.usersBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.usersTableAdapter = new VenousPluck.VenousPluckDataSetTableAdapters.UsersTableAdapter();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.firstNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lastNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -67,17 +73,12 @@
             this.bloodGroupDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.imageDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.usersBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.venousPluckDataSet = new VenousPluck.VenousPluckDataSet();
-            this.label12 = new System.Windows.Forms.Label();
-            this.userSearchTextBox = new System.Windows.Forms.TextBox();
-            this.usersTableAdapter = new VenousPluck.VenousPluckDataSetTableAdapters.UsersTableAdapter();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.venousPluckDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -299,16 +300,26 @@
             this.UserCreateButton.UseVisualStyleBackColor = true;
             this.UserCreateButton.Click += new System.EventHandler(this.UserCreateButton_Click);
             // 
+            // UserUpdateButton
+            // 
+            this.UserUpdateButton.Font = new System.Drawing.Font("Microsoft YaHei UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UserUpdateButton.Location = new System.Drawing.Point(1541, 721);
+            this.UserUpdateButton.Name = "UserUpdateButton";
+            this.UserUpdateButton.Size = new System.Drawing.Size(115, 53);
+            this.UserUpdateButton.TabIndex = 4;
+            this.UserUpdateButton.Text = "Update";
+            this.UserUpdateButton.UseVisualStyleBackColor = true;
+            this.UserUpdateButton.Click += new System.EventHandler(this.UserUpdateButton_Click);
+            // 
             // UserDeleteButton
             // 
             this.UserDeleteButton.Font = new System.Drawing.Font("Microsoft YaHei UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UserDeleteButton.Location = new System.Drawing.Point(181, 721);
+            this.UserDeleteButton.Location = new System.Drawing.Point(1399, 721);
             this.UserDeleteButton.Name = "UserDeleteButton";
             this.UserDeleteButton.Size = new System.Drawing.Size(110, 53);
             this.UserDeleteButton.TabIndex = 4;
             this.UserDeleteButton.Text = "Delete";
             this.UserDeleteButton.UseVisualStyleBackColor = true;
-            this.UserDeleteButton.Click += new System.EventHandler(this.UserDeleteButton_Click);
             // 
             // userDataGridView
             // 
@@ -335,9 +346,39 @@
             this.userDataGridView.Name = "userDataGridView";
             this.userDataGridView.RowHeadersWidth = 62;
             this.userDataGridView.RowTemplate.Height = 28;
-            this.userDataGridView.Size = new System.Drawing.Size(1167, 566);
+            this.userDataGridView.Size = new System.Drawing.Size(1167, 482);
             this.userDataGridView.TabIndex = 5;
-            this.userDataGridView.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.UserDataGridView_RowHeaderMouseDoubleClick);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(835, 161);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(60, 20);
+            this.label12.TabIndex = 1;
+            this.label12.Text = "Search";
+            // 
+            // userSearchTextBox
+            // 
+            this.userSearchTextBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userSearchTextBox.Location = new System.Drawing.Point(957, 148);
+            this.userSearchTextBox.Name = "userSearchTextBox";
+            this.userSearchTextBox.Size = new System.Drawing.Size(271, 39);
+            this.userSearchTextBox.TabIndex = 2;
+            // 
+            // venousPluckDataSet
+            // 
+            this.venousPluckDataSet.DataSetName = "VenousPluckDataSet";
+            this.venousPluckDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // usersBindingSource
+            // 
+            this.usersBindingSource.DataMember = "Users";
+            this.usersBindingSource.DataSource = this.venousPluckDataSet;
+            // 
+            // usersTableAdapter
+            // 
+            this.usersTableAdapter.ClearBeforeFill = true;
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -426,37 +467,6 @@
             this.emailDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
             // 
-            // usersBindingSource
-            // 
-            this.usersBindingSource.DataMember = "Users";
-            this.usersBindingSource.DataSource = this.venousPluckDataSet;
-            // 
-            // venousPluckDataSet
-            // 
-            this.venousPluckDataSet.DataSetName = "VenousPluckDataSet";
-            this.venousPluckDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(835, 161);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(60, 20);
-            this.label12.TabIndex = 1;
-            this.label12.Text = "Search";
-            // 
-            // userSearchTextBox
-            // 
-            this.userSearchTextBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.userSearchTextBox.Location = new System.Drawing.Point(957, 148);
-            this.userSearchTextBox.Name = "userSearchTextBox";
-            this.userSearchTextBox.Size = new System.Drawing.Size(271, 39);
-            this.userSearchTextBox.TabIndex = 2;
-            // 
-            // usersTableAdapter
-            // 
-            this.usersTableAdapter.ClearBeforeFill = true;
-            // 
             // UserForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -467,6 +477,7 @@
             this.ClientSize = new System.Drawing.Size(1666, 786);
             this.Controls.Add(this.userDataGridView);
             this.Controls.Add(this.UserDeleteButton);
+            this.Controls.Add(this.UserUpdateButton);
             this.Controls.Add(this.UserCreateButton);
             this.Controls.Add(this.UserImageChooseButton);
             this.Controls.Add(this.button1);
@@ -501,8 +512,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClose)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.userPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.userDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.venousPluckDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -533,6 +544,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button UserImageChooseButton;
         private System.Windows.Forms.Button UserCreateButton;
+        private System.Windows.Forms.Button UserUpdateButton;
         private System.Windows.Forms.Button UserDeleteButton;
         private System.Windows.Forms.DataGridView userDataGridView;
         private System.Windows.Forms.Label label12;

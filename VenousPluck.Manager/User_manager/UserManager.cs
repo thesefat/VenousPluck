@@ -27,10 +27,25 @@ namespace VenousPluck.Manager.User_manager
             return false; ;
         }
 
-
         public bool Update (User model)
         {
             return _userRepository.Update(model);
+        }
+
+        public ICollection<User> GetAllUser()
+        {
+            var dataList = _userRepository.GetAllUsers();
+            return dataList;
+        }
+
+        public User GetUserById(long id)
+        {
+            var data = _userRepository.GetUserById(id);
+            return data;
+        }
+        public bool Remove(User model)
+        {
+            return _userRepository.Remove(model);
         }
     }
 }
