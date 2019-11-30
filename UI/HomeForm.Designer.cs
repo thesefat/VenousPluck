@@ -114,7 +114,7 @@
             this.userToolStripMenuItem.Name = "userToolStripMenuItem";
             this.userToolStripMenuItem.Size = new System.Drawing.Size(77, 35);
             this.userToolStripMenuItem.Text = "User";
-            this.userToolStripMenuItem.Click += new System.EventHandler(this.userToolStripMenuItem_Click);
+            this.userToolStripMenuItem.Click += new System.EventHandler(this.UserToolStripMenuItem_Click);
             // 
             // donorsToolStripMenuItem
             // 

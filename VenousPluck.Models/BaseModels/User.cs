@@ -16,7 +16,7 @@ namespace VenousPluck.Models.BaseModels
         public string Image { get; set; }
 
         public string Email { get; set; }
-        public string Address { get; set; }
+        //public string Address { get; set; }
         public string ContactNo { get; set; }
         public string UserAddress { get; set; }
         public string UserName { get; set; }

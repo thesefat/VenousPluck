@@ -33,7 +33,6 @@
             this.pictureBoxClose = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.userPictureBox = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -41,29 +40,28 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.userFirstNameTextBox = new System.Windows.Forms.TextBox();
             this.userLastNameTextBox = new System.Windows.Forms.TextBox();
-            this.userNameTextBox = new System.Windows.Forms.TextBox();
-            this.userPasswordTextBox = new System.Windows.Forms.TextBox();
-            this.userContactTextBox = new System.Windows.Forms.TextBox();
-            this.userAddressTextBox = new System.Windows.Forms.TextBox();
             this.userEmailTextBox = new System.Windows.Forms.TextBox();
+            this.userContactNoTextBox = new System.Windows.Forms.TextBox();
+            this.userPasswordTextBox = new System.Windows.Forms.TextBox();
             this.userBloodGroupTextBox = new System.Windows.Forms.TextBox();
-            this.userAddedDateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.UserImageSelectButton = new System.Windows.Forms.Button();
-            this.UserCreateButton = new System.Windows.Forms.Button();
+            this.userAddressTextBox = new System.Windows.Forms.TextBox();
+            this.userNameTextBox = new System.Windows.Forms.TextBox();
+            this.userPictureBox = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.UserImageChooseButton = new System.Windows.Forms.Button();
+            this.UserCreateButton = new System.Windows.Forms.Button();
+            this.UserUpdateButton = new System.Windows.Forms.Button();
+            this.UserDeleteButton = new System.Windows.Forms.Button();
+            this.userDataGridView = new System.Windows.Forms.DataGridView();
             this.label12 = new System.Windows.Forms.Label();
             this.userSearchTextBox = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userPictureBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -74,53 +72,45 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1544, 62);
+            this.panel1.Size = new System.Drawing.Size(1666, 57);
             this.panel1.TabIndex = 0;
             // 
             // pictureBoxClose
             // 
             this.pictureBoxClose.BackColor = System.Drawing.Color.Teal;
             this.pictureBoxClose.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxClose.Image")));
-            this.pictureBoxClose.Location = new System.Drawing.Point(1470, 0);
+            this.pictureBoxClose.Location = new System.Drawing.Point(1591, 6);
             this.pictureBoxClose.Name = "pictureBoxClose";
-            this.pictureBoxClose.Size = new System.Drawing.Size(59, 56);
+            this.pictureBoxClose.Size = new System.Drawing.Size(50, 48);
             this.pictureBoxClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxClose.TabIndex = 8;
+            this.pictureBoxClose.TabIndex = 7;
             this.pictureBoxClose.TabStop = false;
             this.pictureBoxClose.Click += new System.EventHandler(this.PictureBoxClose_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.Control;
-            this.label1.Location = new System.Drawing.Point(618, 9);
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Snow;
+            this.label1.Location = new System.Drawing.Point(678, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(198, 38);
+            this.label1.Size = new System.Drawing.Size(271, 54);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Manage Users";
+            this.label1.Text = "User Manager";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(43, 151);
+            this.label2.Location = new System.Drawing.Point(53, 133);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(106, 20);
             this.label2.TabIndex = 1;
             this.label2.Text = "Profile Picture";
             // 
-            // userPictureBox
-            // 
-            this.userPictureBox.Location = new System.Drawing.Point(222, 109);
-            this.userPictureBox.Name = "userPictureBox";
-            this.userPictureBox.Size = new System.Drawing.Size(192, 146);
-            this.userPictureBox.TabIndex = 2;
-            this.userPictureBox.TabStop = false;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(42, 277);
+            this.label3.Location = new System.Drawing.Point(53, 252);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(86, 20);
             this.label3.TabIndex = 1;
@@ -129,7 +119,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(42, 330);
+            this.label4.Location = new System.Drawing.Point(53, 310);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(86, 20);
             this.label4.TabIndex = 1;
@@ -138,202 +128,195 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(42, 380);
+            this.label5.Location = new System.Drawing.Point(53, 371);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(89, 20);
+            this.label5.Size = new System.Drawing.Size(48, 20);
             this.label5.TabIndex = 1;
-            this.label5.Text = "User Name";
+            this.label5.Text = "Email";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(43, 435);
+            this.label6.Location = new System.Drawing.Point(53, 438);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(78, 20);
+            this.label6.Size = new System.Drawing.Size(89, 20);
             this.label6.TabIndex = 1;
-            this.label6.Text = "Password";
+            this.label6.Text = "Contact No";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(39, 488);
+            this.label7.Location = new System.Drawing.Point(53, 496);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(89, 20);
+            this.label7.Size = new System.Drawing.Size(68, 20);
             this.label7.TabIndex = 1;
-            this.label7.Text = "Contact No";
+            this.label7.Text = "Address";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(43, 538);
+            this.label8.Location = new System.Drawing.Point(53, 615);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(68, 20);
+            this.label8.Size = new System.Drawing.Size(78, 20);
             this.label8.TabIndex = 1;
-            this.label8.Text = "Address";
+            this.label8.Text = "Password";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(43, 585);
+            this.label9.Location = new System.Drawing.Point(68, 676);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(48, 20);
+            this.label9.Size = new System.Drawing.Size(33, 20);
             this.label9.TabIndex = 1;
-            this.label9.Text = "Email";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(39, 638);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(99, 20);
-            this.label10.TabIndex = 1;
-            this.label10.Text = "Blood Group";
+            this.label9.Text = "BG";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(39, 688);
+            this.label11.Location = new System.Drawing.Point(53, 557);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(85, 20);
+            this.label11.Size = new System.Drawing.Size(89, 20);
             this.label11.TabIndex = 1;
-            this.label11.Text = "Entry Date";
+            this.label11.Text = "User Name";
             // 
             // userFirstNameTextBox
             // 
-            this.userFirstNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.userFirstNameTextBox.Location = new System.Drawing.Point(222, 277);
+            this.userFirstNameTextBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userFirstNameTextBox.Location = new System.Drawing.Point(181, 252);
             this.userFirstNameTextBox.Name = "userFirstNameTextBox";
-            this.userFirstNameTextBox.Size = new System.Drawing.Size(341, 32);
-            this.userFirstNameTextBox.TabIndex = 3;
+            this.userFirstNameTextBox.Size = new System.Drawing.Size(271, 39);
+            this.userFirstNameTextBox.TabIndex = 2;
             // 
             // userLastNameTextBox
             // 
-            this.userLastNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.userLastNameTextBox.Location = new System.Drawing.Point(222, 330);
+            this.userLastNameTextBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userLastNameTextBox.Location = new System.Drawing.Point(181, 310);
             this.userLastNameTextBox.Name = "userLastNameTextBox";
-            this.userLastNameTextBox.Size = new System.Drawing.Size(341, 32);
-            this.userLastNameTextBox.TabIndex = 3;
-            // 
-            // userNameTextBox
-            // 
-            this.userNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.userNameTextBox.Location = new System.Drawing.Point(222, 380);
-            this.userNameTextBox.Name = "userNameTextBox";
-            this.userNameTextBox.Size = new System.Drawing.Size(341, 32);
-            this.userNameTextBox.TabIndex = 3;
-            // 
-            // userPasswordTextBox
-            // 
-            this.userPasswordTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.userPasswordTextBox.Location = new System.Drawing.Point(222, 435);
-            this.userPasswordTextBox.Name = "userPasswordTextBox";
-            this.userPasswordTextBox.Size = new System.Drawing.Size(341, 32);
-            this.userPasswordTextBox.TabIndex = 3;
-            // 
-            // userContactTextBox
-            // 
-            this.userContactTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.userContactTextBox.Location = new System.Drawing.Point(222, 488);
-            this.userContactTextBox.Name = "userContactTextBox";
-            this.userContactTextBox.Size = new System.Drawing.Size(341, 32);
-            this.userContactTextBox.TabIndex = 3;
-            // 
-            // userAddressTextBox
-            // 
-            this.userAddressTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.userAddressTextBox.Location = new System.Drawing.Point(222, 538);
-            this.userAddressTextBox.Name = "userAddressTextBox";
-            this.userAddressTextBox.Size = new System.Drawing.Size(341, 32);
-            this.userAddressTextBox.TabIndex = 3;
+            this.userLastNameTextBox.Size = new System.Drawing.Size(271, 39);
+            this.userLastNameTextBox.TabIndex = 2;
             // 
             // userEmailTextBox
             // 
-            this.userEmailTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.userEmailTextBox.Location = new System.Drawing.Point(222, 585);
+            this.userEmailTextBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userEmailTextBox.Location = new System.Drawing.Point(181, 371);
             this.userEmailTextBox.Name = "userEmailTextBox";
-            this.userEmailTextBox.Size = new System.Drawing.Size(341, 32);
-            this.userEmailTextBox.TabIndex = 3;
+            this.userEmailTextBox.Size = new System.Drawing.Size(271, 39);
+            this.userEmailTextBox.TabIndex = 2;
+            // 
+            // userContactNoTextBox
+            // 
+            this.userContactNoTextBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userContactNoTextBox.Location = new System.Drawing.Point(181, 438);
+            this.userContactNoTextBox.Name = "userContactNoTextBox";
+            this.userContactNoTextBox.Size = new System.Drawing.Size(271, 39);
+            this.userContactNoTextBox.TabIndex = 2;
+            // 
+            // userPasswordTextBox
+            // 
+            this.userPasswordTextBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userPasswordTextBox.Location = new System.Drawing.Point(181, 615);
+            this.userPasswordTextBox.Name = "userPasswordTextBox";
+            this.userPasswordTextBox.Size = new System.Drawing.Size(271, 39);
+            this.userPasswordTextBox.TabIndex = 2;
             // 
             // userBloodGroupTextBox
             // 
-            this.userBloodGroupTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.userBloodGroupTextBox.Location = new System.Drawing.Point(222, 638);
+            this.userBloodGroupTextBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userBloodGroupTextBox.Location = new System.Drawing.Point(181, 676);
             this.userBloodGroupTextBox.Name = "userBloodGroupTextBox";
-            this.userBloodGroupTextBox.Size = new System.Drawing.Size(341, 32);
-            this.userBloodGroupTextBox.TabIndex = 3;
+            this.userBloodGroupTextBox.Size = new System.Drawing.Size(271, 39);
+            this.userBloodGroupTextBox.TabIndex = 2;
             // 
-            // userAddedDateTimePicker
+            // userAddressTextBox
             // 
-            this.userAddedDateTimePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.userAddedDateTimePicker.Location = new System.Drawing.Point(222, 688);
-            this.userAddedDateTimePicker.Name = "userAddedDateTimePicker";
-            this.userAddedDateTimePicker.Size = new System.Drawing.Size(341, 32);
-            this.userAddedDateTimePicker.TabIndex = 4;
+            this.userAddressTextBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userAddressTextBox.Location = new System.Drawing.Point(181, 496);
+            this.userAddressTextBox.Name = "userAddressTextBox";
+            this.userAddressTextBox.Size = new System.Drawing.Size(271, 39);
+            this.userAddressTextBox.TabIndex = 2;
             // 
-            // UserImageSelectButton
+            // userNameTextBox
             // 
-            this.UserImageSelectButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UserImageSelectButton.Location = new System.Drawing.Point(440, 220);
-            this.UserImageSelectButton.Name = "UserImageSelectButton";
-            this.UserImageSelectButton.Size = new System.Drawing.Size(123, 51);
-            this.UserImageSelectButton.TabIndex = 5;
-            this.UserImageSelectButton.Text = "Select";
-            this.UserImageSelectButton.UseVisualStyleBackColor = true;
+            this.userNameTextBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userNameTextBox.Location = new System.Drawing.Point(181, 557);
+            this.userNameTextBox.Name = "userNameTextBox";
+            this.userNameTextBox.Size = new System.Drawing.Size(271, 39);
+            this.userNameTextBox.TabIndex = 2;
             // 
-            // UserCreateButton
+            // userPictureBox
             // 
-            this.UserCreateButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UserCreateButton.Location = new System.Drawing.Point(468, 749);
-            this.UserCreateButton.Name = "UserCreateButton";
-            this.UserCreateButton.Size = new System.Drawing.Size(131, 54);
-            this.UserCreateButton.TabIndex = 6;
-            this.UserCreateButton.Text = "CREATE";
-            this.UserCreateButton.UseVisualStyleBackColor = true;
+            this.userPictureBox.Location = new System.Drawing.Point(181, 77);
+            this.userPictureBox.Name = "userPictureBox";
+            this.userPictureBox.Size = new System.Drawing.Size(197, 154);
+            this.userPictureBox.TabIndex = 3;
+            this.userPictureBox.TabStop = false;
             // 
             // button1
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(313, 749);
+            this.button1.Location = new System.Drawing.Point(408, 208);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(131, 54);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "UPDATE";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // UserImageChooseButton
             // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(156, 749);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(131, 54);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "DELETE";
-            this.button2.UseVisualStyleBackColor = true;
+            this.UserImageChooseButton.Font = new System.Drawing.Font("Agency FB", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UserImageChooseButton.Location = new System.Drawing.Point(384, 193);
+            this.UserImageChooseButton.Name = "UserImageChooseButton";
+            this.UserImageChooseButton.Size = new System.Drawing.Size(99, 38);
+            this.UserImageChooseButton.TabIndex = 4;
+            this.UserImageChooseButton.Text = "Choose Image";
+            this.UserImageChooseButton.UseVisualStyleBackColor = true;
+            this.UserImageChooseButton.Click += new System.EventHandler(this.UserImageChooseButton_Click);
             // 
-            // button3
+            // UserCreateButton
             // 
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(440, 109);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(131, 54);
-            this.button3.TabIndex = 6;
-            this.button3.Text = "CLEAR";
-            this.button3.UseVisualStyleBackColor = true;
+            this.UserCreateButton.Font = new System.Drawing.Font("Microsoft YaHei UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UserCreateButton.Location = new System.Drawing.Point(332, 721);
+            this.UserCreateButton.Name = "UserCreateButton";
+            this.UserCreateButton.Size = new System.Drawing.Size(120, 53);
+            this.UserCreateButton.TabIndex = 4;
+            this.UserCreateButton.Text = "Create";
+            this.UserCreateButton.UseVisualStyleBackColor = true;
+            this.UserCreateButton.Click += new System.EventHandler(this.UserCreateButton_Click);
             // 
-            // dataGridView1
+            // UserUpdateButton
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(613, 220);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 62;
-            this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(916, 511);
-            this.dataGridView1.TabIndex = 7;
+            this.UserUpdateButton.Font = new System.Drawing.Font("Microsoft YaHei UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UserUpdateButton.Location = new System.Drawing.Point(1541, 721);
+            this.UserUpdateButton.Name = "UserUpdateButton";
+            this.UserUpdateButton.Size = new System.Drawing.Size(115, 53);
+            this.UserUpdateButton.TabIndex = 4;
+            this.UserUpdateButton.Text = "Update";
+            this.UserUpdateButton.UseVisualStyleBackColor = true;
+            this.UserUpdateButton.Click += new System.EventHandler(this.UserUpdateButton_Click);
+            // 
+            // UserDeleteButton
+            // 
+            this.UserDeleteButton.Font = new System.Drawing.Font("Microsoft YaHei UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UserDeleteButton.Location = new System.Drawing.Point(1399, 721);
+            this.UserDeleteButton.Name = "UserDeleteButton";
+            this.UserDeleteButton.Size = new System.Drawing.Size(110, 53);
+            this.UserDeleteButton.TabIndex = 4;
+            this.UserDeleteButton.Text = "Delete";
+            this.UserDeleteButton.UseVisualStyleBackColor = true;
+            // 
+            // userDataGridView
+            // 
+            this.userDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.userDataGridView.Location = new System.Drawing.Point(515, 208);
+            this.userDataGridView.Name = "userDataGridView";
+            this.userDataGridView.RowHeadersWidth = 62;
+            this.userDataGridView.RowTemplate.Height = 28;
+            this.userDataGridView.Size = new System.Drawing.Size(1141, 482);
+            this.userDataGridView.TabIndex = 5;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(818, 159);
+            this.label12.Location = new System.Drawing.Point(835, 161);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(60, 20);
             this.label12.TabIndex = 1;
@@ -341,11 +324,11 @@
             // 
             // userSearchTextBox
             // 
-            this.userSearchTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.userSearchTextBox.Location = new System.Drawing.Point(952, 151);
+            this.userSearchTextBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userSearchTextBox.Location = new System.Drawing.Point(957, 148);
             this.userSearchTextBox.Name = "userSearchTextBox";
-            this.userSearchTextBox.Size = new System.Drawing.Size(341, 32);
-            this.userSearchTextBox.TabIndex = 3;
+            this.userSearchTextBox.Size = new System.Drawing.Size(271, 39);
+            this.userSearchTextBox.TabIndex = 2;
             // 
             // UserForm
             // 
@@ -354,46 +337,43 @@
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.ClientSize = new System.Drawing.Size(1544, 811);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.button2);
+            this.ClientSize = new System.Drawing.Size(1666, 786);
+            this.Controls.Add(this.userDataGridView);
+            this.Controls.Add(this.UserDeleteButton);
+            this.Controls.Add(this.UserUpdateButton);
             this.Controls.Add(this.UserCreateButton);
-            this.Controls.Add(this.UserImageSelectButton);
-            this.Controls.Add(this.userAddedDateTimePicker);
-            this.Controls.Add(this.userBloodGroupTextBox);
-            this.Controls.Add(this.userAddressTextBox);
-            this.Controls.Add(this.userContactTextBox);
-            this.Controls.Add(this.userEmailTextBox);
+            this.Controls.Add(this.UserImageChooseButton);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.userPictureBox);
             this.Controls.Add(this.userNameTextBox);
+            this.Controls.Add(this.userAddressTextBox);
+            this.Controls.Add(this.userBloodGroupTextBox);
             this.Controls.Add(this.userPasswordTextBox);
+            this.Controls.Add(this.userEmailTextBox);
+            this.Controls.Add(this.userContactNoTextBox);
             this.Controls.Add(this.userLastNameTextBox);
             this.Controls.Add(this.userSearchTextBox);
             this.Controls.Add(this.userFirstNameTextBox);
-            this.Controls.Add(this.userPictureBox);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label7);
             this.Controls.Add(this.label9);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label12);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.label4);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panel1);
-            this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "UserForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Users";
+            this.ShowIcon = false;
+            this.Text = "UserForm";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClose)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.userPictureBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -404,7 +384,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.PictureBox userPictureBox;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
@@ -412,23 +391,22 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox userFirstNameTextBox;
         private System.Windows.Forms.TextBox userLastNameTextBox;
-        private System.Windows.Forms.TextBox userNameTextBox;
-        private System.Windows.Forms.TextBox userPasswordTextBox;
-        private System.Windows.Forms.TextBox userContactTextBox;
-        private System.Windows.Forms.TextBox userAddressTextBox;
         private System.Windows.Forms.TextBox userEmailTextBox;
+        private System.Windows.Forms.TextBox userContactNoTextBox;
+        private System.Windows.Forms.TextBox userPasswordTextBox;
         private System.Windows.Forms.TextBox userBloodGroupTextBox;
-        private System.Windows.Forms.DateTimePicker userAddedDateTimePicker;
-        private System.Windows.Forms.Button UserImageSelectButton;
-        private System.Windows.Forms.Button UserCreateButton;
+        private System.Windows.Forms.TextBox userAddressTextBox;
+        private System.Windows.Forms.TextBox userNameTextBox;
+        private System.Windows.Forms.PictureBox userPictureBox;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button UserImageChooseButton;
+        private System.Windows.Forms.Button UserCreateButton;
+        private System.Windows.Forms.Button UserUpdateButton;
+        private System.Windows.Forms.Button UserDeleteButton;
+        private System.Windows.Forms.DataGridView userDataGridView;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox userSearchTextBox;
         private System.Windows.Forms.PictureBox pictureBoxClose;

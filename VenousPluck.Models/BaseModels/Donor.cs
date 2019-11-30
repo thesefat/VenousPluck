@@ -16,7 +16,7 @@ namespace VenousPluck.Models.BaseModels
         public string Password { get; set; }
         public string Address { get; set; }
         public string ContactNo { get; set; }
-        public string UserAddress { get; set; }
+        //public string UserAddress { get; set; }
         public string UserName { get; set; }
         public DateTime AddedDate { get; set; }
         public string BloodGroup { get; set; }

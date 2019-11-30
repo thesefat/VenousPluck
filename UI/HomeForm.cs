@@ -26,13 +26,13 @@ namespace VenousPluck
         }
         #endregion
 
-        private void userToolStripMenuItem_Click(object sender, EventArgs e)
+        private void UserToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+
             UserForm userForm = new UserForm();
             userForm.Show();
-            
-            
+
+
         }
     }
 }

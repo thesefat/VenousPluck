@@ -64,6 +64,10 @@
     <Compile Include="Migrations\201911291030396_EmailPropertyAdded.designer.cs">
       <DependentUpon>201911291030396_EmailPropertyAdded.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201911301026291_AddressPropertyExcluded.cs" />
+    <Compile Include="Migrations\201911301026291_AddressPropertyExcluded.designer.cs">
+      <DependentUpon>201911301026291_AddressPropertyExcluded.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -86,6 +90,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201911291030396_EmailPropertyAdded.resx">
       <DependentUpon>201911291030396_EmailPropertyAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911301026291_AddressPropertyExcluded.resx">
+      <DependentUpon>201911301026291_AddressPropertyExcluded.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
