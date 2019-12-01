@@ -51,7 +51,6 @@
             this.userAddressTextBox = new System.Windows.Forms.TextBox();
             this.userNameTextBox = new System.Windows.Forms.TextBox();
             this.userPictureBox = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.UserImageChooseButton = new System.Windows.Forms.Button();
             this.UserCreateButton = new System.Windows.Forms.Button();
             this.UserDeleteButton = new System.Windows.Forms.Button();
@@ -262,29 +261,22 @@
             // 
             // userPictureBox
             // 
-            this.userPictureBox.Location = new System.Drawing.Point(181, 77);
+            this.userPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("userPictureBox.Image")));
+            this.userPictureBox.Location = new System.Drawing.Point(181, 63);
             this.userPictureBox.Name = "userPictureBox";
-            this.userPictureBox.Size = new System.Drawing.Size(197, 154);
+            this.userPictureBox.Size = new System.Drawing.Size(200, 183);
+            this.userPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.userPictureBox.TabIndex = 3;
             this.userPictureBox.TabStop = false;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(408, 208);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // UserImageChooseButton
             // 
             this.UserImageChooseButton.Font = new System.Drawing.Font("Agency FB", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UserImageChooseButton.Location = new System.Drawing.Point(384, 193);
+            this.UserImageChooseButton.Location = new System.Drawing.Point(410, 77);
             this.UserImageChooseButton.Name = "UserImageChooseButton";
-            this.UserImageChooseButton.Size = new System.Drawing.Size(99, 38);
+            this.UserImageChooseButton.Size = new System.Drawing.Size(68, 36);
             this.UserImageChooseButton.TabIndex = 4;
-            this.UserImageChooseButton.Text = "Choose Image";
+            this.UserImageChooseButton.Text = "Upload";
             this.UserImageChooseButton.UseVisualStyleBackColor = true;
             this.UserImageChooseButton.Click += new System.EventHandler(this.UserImageChooseButton_Click);
             // 
@@ -469,7 +461,6 @@
             this.Controls.Add(this.UserDeleteButton);
             this.Controls.Add(this.UserCreateButton);
             this.Controls.Add(this.UserImageChooseButton);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.userPictureBox);
             this.Controls.Add(this.userNameTextBox);
             this.Controls.Add(this.userAddressTextBox);
@@ -530,7 +521,6 @@
         private System.Windows.Forms.TextBox userAddressTextBox;
         private System.Windows.Forms.TextBox userNameTextBox;
         private System.Windows.Forms.PictureBox userPictureBox;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button UserImageChooseButton;
         private System.Windows.Forms.Button UserCreateButton;
         private System.Windows.Forms.Button UserDeleteButton;

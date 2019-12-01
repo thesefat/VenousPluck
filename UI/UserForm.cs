@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,136 +15,189 @@ namespace VenousPluck.UI
 {
     public partial class UserForm : Form
     {
+
+        public string paths = Application.StartupPath.Substring(0, (Application.StartupPath.Length - 10));
         public string ImageFile = "No_Image.jpg";
         User user = new User();
-       
-
+        
         private readonly UserManager _userManager;
 
         public UserForm()
         {
             InitializeComponent();
             _userManager = new UserManager();
-            
+           
         }
 
-        #region Image
+        #region Upload Image to File Storage
         private void UserImageChooseButton_Click(object sender, EventArgs e)
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
 
-#pragma warning disable CA1303 // Do not pass literals as localized parameters
-            openFileDialog.Filter = "Image Files(*.jpg; *.jpeg; *.png; *.PNG; *.gif;) | *.jpg;*.jpeg;*.png;*.PNG;*.gif;";
-#pragma warning restore CA1303 // Do not pass literals as localized parameters
-
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            try
             {
-                if (openFileDialog.CheckFileExists)
+
+                OpenFileDialog openFileDialog = new OpenFileDialog();
+
+                #pragma warning disable CA1303 // Do not pass literals as localized parameters
+                openFileDialog.Filter = "Image Files(*.jpg; *.jpeg; *.png; *.PNG; *.gif;) | *.jpg;*.jpeg;*.png;*.PNG;*.gif;";
+                #pragma warning restore CA1303 // Do not pass literals as localized parameters
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    userPictureBox.Image = new Bitmap(openFileDialog.FileName);
+                    if (openFileDialog.CheckFileExists)
+                    {
+                        userPictureBox.Image = new Bitmap(openFileDialog.FileName); //Display in form
+
+                        string imageExtention = Path.GetExtension(openFileDialog.FileName); //Get Extention of Image
+                        Random random = new Random();  // Generate Random Integer
+                        int randowmInt = random.Next(0, 10000);
+
+                        ImageFile = "VenousPluck_" + randowmInt + imageExtention; // Rename The Image
+
+                        string sourcePath = openFileDialog.FileName; //Get the path of Selected Image
+
+                        //string paths = Application.StartupPath.Substring(0, Application.StartupPath.Length); //Get the path of destination
+
+                        string destinatinonPath = paths + "\\images\\" + ImageFile;  // Image to destination Folder
+
+                        File.Copy(sourcePath, destinatinonPath);  // Image copy to destination path
+
+                        MessageBox.Show("Image Upload Successfully");
+
+                    }
                 }
             }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            } 
+
+
         }
         #endregion
 
-
-
-        #region Form Clear
+        #region Clear From for Refresh Text Box
 
         public void ClearForm()
         {
-            userFirstNameTextBox.Text = "";
-            userLastNameTextBox.Text = "";
-            userNameTextBox.Text = "";
-            userPasswordTextBox.Text = "";
-            userEmailTextBox.Text = "";
-            userAddressTextBox.Text = "";
-            userBloodGroupTextBox.Text = "";
-            userContactNoTextBox.Text = "";
-            userPictureBox = null;
+
+            try
+            {
+                userFirstNameTextBox.Text = "";
+                userLastNameTextBox.Text = "";
+                userNameTextBox.Text = "";
+                userPasswordTextBox.Text = "";
+                userEmailTextBox.Text = "";
+                userAddressTextBox.Text = "";
+                userBloodGroupTextBox.Text = "";
+                userContactNoTextBox.Text = "";
+                string imgPath = paths + "\\images\\No_Image.jpg";
+                userPictureBox.Image = new Bitmap(imgPath);
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
+          
         }
         #endregion
 
-
-
-
-
-        #region Create User
+        #region User Create And Update
         private void UserCreateButton_Click(object sender, EventArgs e)
         {
 
-            user.FirstName = userFirstNameTextBox.Text;
-            user.LastName = userLastNameTextBox.Text;
-            user.UserName = userNameTextBox.Text;
-            user.Password = userPasswordTextBox.Text;
-            user.Email = userEmailTextBox.Text;
-            user.UserAddress = userAddressTextBox.Text;
-            user.AddedDate = DateTime.Now;
-            user.BloodGroup = userBloodGroupTextBox.Text;
-            user.ContactNo = userContactNoTextBox.Text;
-            user.Image = ImageFile;
-
-
-
-            if (UserCreateButton.Text == "Update")
+            try
             {
-                if (user.Id>0)
+
+                user.FirstName = userFirstNameTextBox.Text;
+                user.LastName = userLastNameTextBox.Text;
+                user.UserName = userNameTextBox.Text;
+                user.Password = userPasswordTextBox.Text;
+                user.Email = userEmailTextBox.Text;
+                user.UserAddress = userAddressTextBox.Text;
+                user.AddedDate = DateTime.Now;
+                user.BloodGroup = userBloodGroupTextBox.Text;
+                user.ContactNo = userContactNoTextBox.Text;
+                user.Image = ImageFile;
+
+                #region Update
+
+                if (UserCreateButton.Text == "Update")
                 {
-                    //User Update Code Here
-                    var isUpdate = _userManager.Update(user);
-                    if (isUpdate)
+                    if (user.Id > 0)
                     {
-                        MessageBox.Show($"User Update successfully of {user.FirstName + " " + user.LastName}");
+                        //User Update Code Here
+                        var isUpdate = _userManager.Update(user);
+                        if (isUpdate)
+                        {
+                            MessageBox.Show($"User Update successfully of {user.FirstName + " " + user.LastName}");
+                            DataSourceUpdate();
+                            ClearForm();
+                        }
+                        UserCreateButton.Text = "Create";
+
+                        return;
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("User not valid");
+                        return;
+                    }
+
+                }
+
+                #endregion
+
+                #region Create
+                if (UserCreateButton.Text == "Create")
+                {
+
+
+                    var isAdded = _userManager.Add(user);
+                    if (isAdded)
+                    {
+                        MessageBox.Show($"User created successfully of {user.FirstName + " " + user.LastName}");
                         DataSourceUpdate();
                         ClearForm();
+                        return;
                     }
-                    UserCreateButton.Text = "Create";
-
-                    return;
-
                 }
-                else
-                {
-                    MessageBox.Show("User not valid");
-                    return;
-                }
-               
+                #endregion
+
+                MessageBox.Show("Operation Failed");
+
             }
-
-
-
-            #region User Create
-            if (UserCreateButton.Text == "Create")
+            catch (Exception ex)
             {
-              
 
-                var isAdded = _userManager.Add(user);
-                if (isAdded)
-                {
-                    MessageBox.Show($"User created successfully of {user.FirstName + " " + user.LastName}");
-                    DataSourceUpdate();
-                    ClearForm();
-                    return;
-                }
+                throw new Exception(ex.Message);
             }
-            #endregion
 
-            MessageBox.Show("Operation Failed");
 
         }
         #endregion
 
-
-        #region DataSourceUpdate
+        #region Data Grid View Source Update
         public void DataSourceUpdate() {
-            var datalist = _userManager.GetAllUser();
-            usersBindingSource.DataSource = null;
-            usersBindingSource.DataSource = datalist;
+
+            try
+            {
+                var datalist = _userManager.GetAllUser();
+                usersBindingSource.DataSource = null;
+                usersBindingSource.DataSource = datalist;
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
+          
         }
 
         #endregion
-
-
 
         #region  Single Mouse Click Event
         //private void UserUpdateButton_Click(object sender, EventArgs e)
@@ -156,7 +210,17 @@ namespace VenousPluck.UI
         #region Application Close
         private void PictureBoxClose_Click(object sender, EventArgs e)
         {
-            Close();
+
+            try
+            {
+                Close();
+            }
+            catch (Exception ex) 
+            {
+
+                throw new Exception(ex.Message);
+            }
+            
         }
 
         #endregion
@@ -165,8 +229,16 @@ namespace VenousPluck.UI
         private void UserForm_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'venousPluckDataSet.Users' table. You can move, or remove it, as needed.
+            try
+            {
+                DataSourceUpdate();
+            }
+            catch (Exception ex)
+            {
 
-            DataSourceUpdate();
+                throw new Exception(ex.Message);
+            }
+           
 
            // this.usersTableAdapter.Fill(this.venousPluckDataSet.Users);
 
@@ -188,37 +260,87 @@ namespace VenousPluck.UI
         //    UserCreateButton.Text = "Update";
         //}
 
-
         #region Form Fill Up By Selected User 
         public void FormFillUpBySelectedUser( User user )
         {
 
-            userFirstNameTextBox.Text = user.FirstName;
-            userLastNameTextBox.Text = user.LastName;
-            userNameTextBox.Text = user.UserName;
-            userPasswordTextBox.Text = user.Password;
-            userEmailTextBox.Text = user.Email;
-            userAddressTextBox.Text = user.UserAddress;
-            userBloodGroupTextBox.Text = user.BloodGroup;
-            userContactNoTextBox.Text = user.ContactNo;
-            userPictureBox = null;
+            try
+            {
+                userFirstNameTextBox.Text = user.FirstName;
+                userLastNameTextBox.Text = user.LastName;
+                userNameTextBox.Text = user.UserName;
+                userPasswordTextBox.Text = user.Password;
+                userEmailTextBox.Text = user.Email;
+                userAddressTextBox.Text = user.UserAddress;
+                userBloodGroupTextBox.Text = user.BloodGroup;
+                userContactNoTextBox.Text = user.ContactNo;
+                GetImageFromFile(user.Image.ToString());
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
+
+           
+            
         }
         #endregion
 
+        #region Get Image From File
+        public void GetImageFromFile(string _imgName)
+        {
+
+            try
+            {
+                if (_imgName != "No_Image.jpg")
+                {
+                    string imgPath = paths + "\\images\\" + _imgName;
+                    userPictureBox.Image = new Bitmap(imgPath);
+                    return;
+
+                }
+
+                if (_imgName == "No_Image.jpg")
+                {
+                    string imgPath = paths + "\\images\\" + _imgName;
+                    userPictureBox.Image = new Bitmap(imgPath);
+                    return;
+
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
+          
+
+
+        }
+
+        #endregion
 
         #region Selected User in Update Form
         private void UserDataGridView_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            int rowIndex = e.RowIndex;
-            string getId = userDataGridView.Rows[rowIndex].Cells[0].Value.ToString();
+            try
+            {
+                int rowIndex = e.RowIndex;
+                string getId = userDataGridView.Rows[rowIndex].Cells[0].Value.ToString();
+                user = _userManager.GetUserById(Convert.ToInt64(getId));
+                FormFillUpBySelectedUser(user);
+                UserCreateButton.Text = "Update";
+                UserDeleteButton.Show();
+            }
+            catch (Exception ex)
+            {
 
-            user =  _userManager.GetUserById(Convert.ToInt64(getId));
+                throw new Exception(ex.Message);
+            }
 
 
-            FormFillUpBySelectedUser(user);
-
-            UserCreateButton.Text = "Update";
-            UserDeleteButton.Show();
+           
 
         
         }
@@ -227,22 +349,36 @@ namespace VenousPluck.UI
 
         //private void UserUpdateButton_Click(object sender, EventArgs e)
         //{
-           
+
         //    UserUpdateButton.Hide();
         //}
 
+        #region User Delete from Table 
         private void UserDeleteButton_Click(object sender, EventArgs e)
         {
 
-            if (MessageBox.Show("Are You Sure to Delete This Record ?","Venous Pluck",MessageBoxButtons.YesNoCancel)==DialogResult.Yes)
+            try
             {
-                _userManager.Remove(user);
-                DataSourceUpdate();
-                ClearForm();
-                UserDeleteButton.Hide();
-                UserCreateButton.Text = "Create";
-                return;
+                if (MessageBox.Show("Are You Sure to Delete This Record ?", "Venous Pluck", MessageBoxButtons.YesNoCancel) == DialogResult.Yes)
+                {
+                    _userManager.Remove(user);
+                    DataSourceUpdate();
+                    ClearForm();
+                    UserDeleteButton.Hide();
+                    UserCreateButton.Text = "Create";
+                    return;
+                }
+
             }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
+
+            
         }
+
+        #endregion
     }
 }
