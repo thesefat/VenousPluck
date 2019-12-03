@@ -87,7 +87,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1666, 57);
+            this.panel1.Size = new System.Drawing.Size(1668, 57);
             this.panel1.TabIndex = 0;
             // 
             // pictureBoxClose
@@ -308,6 +308,7 @@
             this.userDataGridView.AllowUserToResizeRows = false;
             this.userDataGridView.AutoGenerateColumns = false;
             this.userDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.userDataGridView.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.userDataGridView.ColumnHeadersHeight = 36;
             this.userDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDataGridViewTextBoxColumn,
@@ -323,6 +324,7 @@
             this.emailDataGridViewTextBoxColumn});
             this.userDataGridView.Cursor = System.Windows.Forms.Cursors.PanNE;
             this.userDataGridView.DataSource = this.usersBindingSource;
+            this.userDataGridView.GridColor = System.Drawing.SystemColors.InactiveCaption;
             this.userDataGridView.Location = new System.Drawing.Point(489, 208);
             this.userDataGridView.Name = "userDataGridView";
             this.userDataGridView.RowHeadersWidth = 62;
@@ -456,7 +458,7 @@
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.ClientSize = new System.Drawing.Size(1666, 786);
+            this.ClientSize = new System.Drawing.Size(1668, 790);
             this.Controls.Add(this.userDataGridView);
             this.Controls.Add(this.UserDeleteButton);
             this.Controls.Add(this.UserCreateButton);

@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VenousPluck.Manager", "Veno
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VenousPluck.Repository", "VenousPluck.Repository\VenousPluck.Repository.csproj", "{21E53C00-827F-474A-A995-4D21D817B91D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VenousPluck.Web", "VenousPluck.Web\VenousPluck.Web.csproj", "{124F4933-99D2-4628-8138-4D08E19E2902}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{21E53C00-827F-474A-A995-4D21D817B91D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{21E53C00-827F-474A-A995-4D21D817B91D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{21E53C00-827F-474A-A995-4D21D817B91D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{124F4933-99D2-4628-8138-4D08E19E2902}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{124F4933-99D2-4628-8138-4D08E19E2902}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{124F4933-99D2-4628-8138-4D08E19E2902}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{124F4933-99D2-4628-8138-4D08E19E2902}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

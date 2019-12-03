@@ -336,7 +336,7 @@ namespace VenousPluck.UI
             catch (Exception ex)
             {
 
-                throw new Exception(ex.Message);
+                MessageBox.Show(ex.Message);
             }
 
 

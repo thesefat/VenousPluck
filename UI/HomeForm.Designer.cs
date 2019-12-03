@@ -634,7 +634,9 @@
             // 
             // donorsDataGridView
             // 
+            this.donorsDataGridView.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.donorsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.donorsDataGridView.GridColor = System.Drawing.SystemColors.ActiveCaption;
             this.donorsDataGridView.Location = new System.Drawing.Point(740, 254);
             this.donorsDataGridView.Name = "donorsDataGridView";
             this.donorsDataGridView.RowHeadersWidth = 62;
