@@ -10,13 +10,13 @@ namespace VenousPluck.Manager.User_manager
 {
     public class UserManager
     {
-
         private readonly UserRepository _userRepository;
 
         public UserManager()
         {
             _userRepository = new UserRepository();
         }
+
         public bool Add(User model)
         {
             //var isAdded = false;
@@ -27,7 +27,13 @@ namespace VenousPluck.Manager.User_manager
             return false; ;
         }
 
-        public bool Update (User model)
+        public ICollection<User> Search(string keyword)
+        {
+            var datalist = _userRepository.Search(keyword);
+            return datalist;
+        }
+
+        public bool Update(User model)
         {
             return _userRepository.Update(model);
         }
@@ -43,6 +49,7 @@ namespace VenousPluck.Manager.User_manager
             var data = _userRepository.GetUserById(id);
             return data;
         }
+
         public bool Remove(User model)
         {
             return _userRepository.Remove(model);

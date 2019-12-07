@@ -76,9 +76,9 @@
             this.label32 = new System.Windows.Forms.Label();
             this.labelABNegativeCount = new System.Windows.Forms.Label();
             this.labelO = new System.Windows.Forms.Label();
-            this.donorsDataGridView = new System.Windows.Forms.DataGridView();
+            this.searchGridView = new System.Windows.Forms.DataGridView();
             this.label9 = new System.Windows.Forms.Label();
-            this.donorSearchTextBox = new System.Windows.Forms.TextBox();
+            this.searchTextBox = new System.Windows.Forms.TextBox();
             this.pictureBoxClose = new System.Windows.Forms.PictureBox();
             this.menuStripTop.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -90,7 +90,7 @@
             this.panel6.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.donorsDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClose)).BeginInit();
             this.SuspendLayout();
             // 
@@ -632,17 +632,17 @@
             this.labelO.TabIndex = 0;
             this.labelO.Text = "AB-";
             // 
-            // donorsDataGridView
+            // searchGridView
             // 
-            this.donorsDataGridView.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
-            this.donorsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.donorsDataGridView.GridColor = System.Drawing.SystemColors.ActiveCaption;
-            this.donorsDataGridView.Location = new System.Drawing.Point(740, 254);
-            this.donorsDataGridView.Name = "donorsDataGridView";
-            this.donorsDataGridView.RowHeadersWidth = 62;
-            this.donorsDataGridView.RowTemplate.Height = 28;
-            this.donorsDataGridView.Size = new System.Drawing.Size(921, 544);
-            this.donorsDataGridView.TabIndex = 3;
+            this.searchGridView.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            this.searchGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.searchGridView.GridColor = System.Drawing.SystemColors.ActiveCaption;
+            this.searchGridView.Location = new System.Drawing.Point(740, 254);
+            this.searchGridView.Name = "searchGridView";
+            this.searchGridView.RowHeadersWidth = 62;
+            this.searchGridView.RowTemplate.Height = 28;
+            this.searchGridView.Size = new System.Drawing.Size(902, 544);
+            this.searchGridView.TabIndex = 3;
             // 
             // label9
             // 
@@ -654,13 +654,14 @@
             this.label9.TabIndex = 4;
             this.label9.Text = "Search";
             // 
-            // donorSearchTextBox
+            // searchTextBox
             // 
-            this.donorSearchTextBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.donorSearchTextBox.Location = new System.Drawing.Point(902, 171);
-            this.donorSearchTextBox.Name = "donorSearchTextBox";
-            this.donorSearchTextBox.Size = new System.Drawing.Size(568, 39);
-            this.donorSearchTextBox.TabIndex = 5;
+            this.searchTextBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchTextBox.Location = new System.Drawing.Point(902, 171);
+            this.searchTextBox.Name = "searchTextBox";
+            this.searchTextBox.Size = new System.Drawing.Size(568, 39);
+            this.searchTextBox.TabIndex = 5;
+            this.searchTextBox.TextChanged += new System.EventHandler(this.searchTextBox_TextChanged);
             // 
             // pictureBoxClose
             // 
@@ -682,9 +683,9 @@
             this.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.ClientSize = new System.Drawing.Size(1702, 938);
             this.Controls.Add(this.pictureBoxClose);
-            this.Controls.Add(this.donorSearchTextBox);
+            this.Controls.Add(this.searchTextBox);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.donorsDataGridView);
+            this.Controls.Add(this.searchGridView);
             this.Controls.Add(this.panel8);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.panel4);
@@ -723,7 +724,7 @@
             this.panel7.PerformLayout();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.donorsDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClose)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -779,9 +780,9 @@
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.Label labelABNegativeCount;
         private System.Windows.Forms.Label labelO;
-        private System.Windows.Forms.DataGridView donorsDataGridView;
+        private System.Windows.Forms.DataGridView searchGridView;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox donorSearchTextBox;
+        private System.Windows.Forms.TextBox searchTextBox;
         private System.Windows.Forms.PictureBox pictureBoxClose;
     }
 }

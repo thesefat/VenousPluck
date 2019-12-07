@@ -13,10 +13,52 @@ namespace VenousPluck.Repository.UserOperation
     {
         private readonly ProjectDbContext _db;
 
-
         public UserRepository()
         {
             _db = new ProjectDbContext();
+        }
+
+        public ICollection<User> Search(string keyword)
+        {
+            try
+            {
+                var datalist = _db.Users.AsQueryable();
+
+                if (!string.IsNullOrEmpty(keyword))
+                {
+                    datalist = datalist.Where(c => c.FirstName.Contains(keyword));
+                }
+                return datalist.ToList();
+
+                //if (!string.IsNullOrEmpty(obj.LastName))
+                //{
+                //    datalist = datalist.Where(c => c.LastName.Contains(keyword));
+                //}
+
+                //if (!string.IsNullOrEmpty(obj.BloodGroup))
+                //{
+                //    datalist = datalist.Where(c => c.BloodGroup.Contains(keyword));
+                //}
+
+                //if (!string.IsNullOrEmpty(obj.ContactNo))
+                //{
+                //    datalist = datalist.Where(c => c.ContactNo.Contains(keyword));
+                //}
+
+                //if (!string.IsNullOrEmpty(obj.Email))
+                //{
+                //    datalist = datalist.Where(c => c.Email.Contains(keyword));
+                //}
+
+                //if (!string.IsNullOrEmpty(obj.UserName))
+                //{
+                //    datalist = datalist.Where(c => c.UserName.Contains(keyword));
+                //}
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
         public bool Add(User model)
@@ -43,14 +85,11 @@ namespace VenousPluck.Repository.UserOperation
                 _db.Entry(model).State = EntityState.Modified;
                 var updated = _db.SaveChanges() > 0;
                 return updated;
-
             }
             catch (Exception ex)
             {
-
                 throw new Exception(ex.Message);
             }
-
         }
 
         public ICollection<User> GetAllUsers()
@@ -75,7 +114,6 @@ namespace VenousPluck.Repository.UserOperation
                     _db.Users.Remove(model);
                     return _db.SaveChanges() > 0;
                 }
-
             }
             return false;
         }
