@@ -26,7 +26,12 @@ namespace VenousPluck.Repository.UserOperation
 
                 if (!string.IsNullOrEmpty(keyword))
                 {
-                    datalist = datalist.Where(c => c.FirstName.Contains(keyword));
+                    datalist = datalist.Where(c => c.FirstName.Contains(keyword) ||
+                                                   c.LastName.Contains(keyword) ||
+                                                   c.BloodGroup.Contains(keyword) ||
+                                                   c.Email.Contains(keyword) ||
+                                                   c.ContactNo.Contains(keyword) ||
+                                                   c.UserAddress.Contains(keyword));
                 }
                 return datalist.ToList();
 
