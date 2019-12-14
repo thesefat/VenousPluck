@@ -72,7 +72,7 @@ namespace VenousPluck.Repository.DonorOperation
             }
         }
 
-        public ICollection<Donor> GetAllDonors()
+        public ICollection<Donor> GetAllDonor()
         {
             return _db.Donors.ToList();
         }

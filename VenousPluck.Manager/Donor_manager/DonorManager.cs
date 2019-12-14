@@ -40,7 +40,7 @@ namespace VenousPluck.Manager.Donor_manager
 
         public ICollection<Donor> GetAllDonor()
         {
-            var dataList = _donorRepository.GetAllDonors();
+            var dataList = _donorRepository.GetAllDonor();
             return dataList;
         }
 

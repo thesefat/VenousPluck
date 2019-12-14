@@ -32,6 +32,7 @@
             this.menuStripTop = new System.Windows.Forms.MenuStrip();
             this.userToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.donorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.donorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -101,7 +102,8 @@
             this.menuStripTop.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStripTop.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.userToolStripMenuItem,
-            this.donorsToolStripMenuItem});
+            this.donorsToolStripMenuItem,
+            this.donorToolStripMenuItem});
             this.menuStripTop.Location = new System.Drawing.Point(0, 2);
             this.menuStripTop.Name = "menuStripTop";
             this.menuStripTop.Padding = new System.Windows.Forms.Padding(10, 10, 0, 3);
@@ -118,7 +120,15 @@
             // 
             // donorsToolStripMenuItem
             // 
-
+            this.donorsToolStripMenuItem.Name = "donorsToolStripMenuItem";
+            this.donorsToolStripMenuItem.Size = new System.Drawing.Size(16, 35);
+            // 
+            // donorToolStripMenuItem
+            // 
+            this.donorToolStripMenuItem.Name = "donorToolStripMenuItem";
+            this.donorToolStripMenuItem.Size = new System.Drawing.Size(97, 35);
+            this.donorToolStripMenuItem.Text = "Donor";
+            this.donorToolStripMenuItem.Click += new System.EventHandler(this.DonorToolStripMenuItem_Click);
             // 
             // panel1
             // 
@@ -782,6 +792,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox searchTextBox;
         private System.Windows.Forms.PictureBox pictureBoxClose;
+        private System.Windows.Forms.ToolStripMenuItem donorToolStripMenuItem;
     }
 }
 

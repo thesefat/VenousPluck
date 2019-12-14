@@ -64,6 +64,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DonorsViewDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DonorsViewDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="UI\DonorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\DonorForm.Designer.cs">
+      <DependentUpon>DonorForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\HomeForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +89,9 @@
     <Compile Include="UI\UserForm.Designer.cs">
       <DependentUpon>UserForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UI\DonorForm.resx">
+      <DependentUpon>DonorForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\HomeForm.resx">
       <DependentUpon>HomeForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -95,6 +109,17 @@
       <DependentUpon>UserForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include=".editorconfig" />
+    <None Include="DonorsViewDataSet.xsc">
+      <DependentUpon>DonorsViewDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DonorsViewDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DonorsViewDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DonorsViewDataSet.xss">
+      <DependentUpon>DonorsViewDataSet.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
