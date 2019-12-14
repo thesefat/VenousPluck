@@ -39,7 +39,7 @@ namespace VenousPluck
             userForm.Show();
         }
 
-        private void searchTextBox_TextChanged(object sender, EventArgs e)
+        private void SearchTextBox_TextChanged(object sender, EventArgs e)
         {
             string value = searchTextBox.Text;
             ICollection<UsersVM> userVm = new List<UsersVM>();
@@ -63,6 +63,12 @@ namespace VenousPluck
 
             searchGridView.DataSource = null;
             searchGridView.DataSource = userVm;
+        }
+
+        private void DonorsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DonorForm donorForm = new DonorForm();
+            donorForm.Show();
         }
     }
 }

@@ -16,5 +16,10 @@ namespace VenousPluck.UI
         {
             InitializeComponent();
         }
+
+        private void PictureBoxClose_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

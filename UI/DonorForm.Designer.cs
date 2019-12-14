@@ -35,7 +35,6 @@
             this.donorPictureBox = new System.Windows.Forms.PictureBox();
             this.donorUserNameTextBox = new System.Windows.Forms.TextBox();
             this.donorAddressTextBox = new System.Windows.Forms.TextBox();
-            this.donorBloodGroupTextBox = new System.Windows.Forms.TextBox();
             this.donorPasswordTextBox = new System.Windows.Forms.TextBox();
             this.donorEmailTextBox = new System.Windows.Forms.TextBox();
             this.donorContactNoTextBox = new System.Windows.Forms.TextBox();
@@ -56,6 +55,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.donorDataGridView = new System.Windows.Forms.DataGridView();
+            this.donorBloodGroupComboBox = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.donorPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClose)).BeginInit();
             this.panel1.SuspendLayout();
@@ -117,14 +117,6 @@
             this.donorAddressTextBox.Name = "donorAddressTextBox";
             this.donorAddressTextBox.Size = new System.Drawing.Size(271, 39);
             this.donorAddressTextBox.TabIndex = 23;
-            // 
-            // donorBloodGroupTextBox
-            // 
-            this.donorBloodGroupTextBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.donorBloodGroupTextBox.Location = new System.Drawing.Point(181, 684);
-            this.donorBloodGroupTextBox.Name = "donorBloodGroupTextBox";
-            this.donorBloodGroupTextBox.Size = new System.Drawing.Size(271, 39);
-            this.donorBloodGroupTextBox.TabIndex = 22;
             // 
             // donorPasswordTextBox
             // 
@@ -203,6 +195,7 @@
             this.pictureBoxClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxClose.TabIndex = 7;
             this.pictureBoxClose.TabStop = false;
+            this.pictureBoxClose.Click += new System.EventHandler(this.PictureBoxClose_Click);
             // 
             // label1
             // 
@@ -309,11 +302,32 @@
             this.donorDataGridView.Size = new System.Drawing.Size(1103, 509);
             this.donorDataGridView.TabIndex = 30;
             // 
+            // donorBloodGroupComboBox
+            // 
+            this.donorBloodGroupComboBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.donorBloodGroupComboBox.FormattingEnabled = true;
+            this.donorBloodGroupComboBox.Items.AddRange(new object[] {
+            "A+",
+            "A-",
+            "B+",
+            "B-",
+            "AB+",
+            "AB-",
+            "O+",
+            "O-"});
+            this.donorBloodGroupComboBox.Location = new System.Drawing.Point(181, 684);
+            this.donorBloodGroupComboBox.Name = "donorBloodGroupComboBox";
+            this.donorBloodGroupComboBox.Size = new System.Drawing.Size(271, 40);
+            this.donorBloodGroupComboBox.TabIndex = 31;
+            this.donorBloodGroupComboBox.Text = "--Select Blood Group--";
+            // 
             // DonorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1668, 790);
+            this.Controls.Add(this.donorBloodGroupComboBox);
             this.Controls.Add(this.donorDataGridView);
             this.Controls.Add(this.DonorDeleteButton);
             this.Controls.Add(this.DonorImageChooseButton);
@@ -321,7 +335,6 @@
             this.Controls.Add(this.donorPictureBox);
             this.Controls.Add(this.donorUserNameTextBox);
             this.Controls.Add(this.donorAddressTextBox);
-            this.Controls.Add(this.donorBloodGroupTextBox);
             this.Controls.Add(this.donorPasswordTextBox);
             this.Controls.Add(this.donorEmailTextBox);
             this.Controls.Add(this.donorContactNoTextBox);
@@ -359,7 +372,6 @@
         private System.Windows.Forms.PictureBox donorPictureBox;
         private System.Windows.Forms.TextBox donorUserNameTextBox;
         private System.Windows.Forms.TextBox donorAddressTextBox;
-        private System.Windows.Forms.TextBox donorBloodGroupTextBox;
         private System.Windows.Forms.TextBox donorPasswordTextBox;
         private System.Windows.Forms.TextBox donorEmailTextBox;
         private System.Windows.Forms.TextBox donorContactNoTextBox;
@@ -380,5 +392,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridView donorDataGridView;
+        private System.Windows.Forms.ComboBox donorBloodGroupComboBox;
     }
 }

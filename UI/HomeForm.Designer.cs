@@ -121,6 +121,7 @@
             this.donorsToolStripMenuItem.Name = "donorsToolStripMenuItem";
             this.donorsToolStripMenuItem.Size = new System.Drawing.Size(107, 35);
             this.donorsToolStripMenuItem.Text = "Donors";
+            this.donorsToolStripMenuItem.Click += new System.EventHandler(this.DonorsToolStripMenuItem_Click);
             // 
             // panel1
             // 
@@ -661,7 +662,7 @@
             this.searchTextBox.Name = "searchTextBox";
             this.searchTextBox.Size = new System.Drawing.Size(568, 39);
             this.searchTextBox.TabIndex = 5;
-            this.searchTextBox.TextChanged += new System.EventHandler(this.searchTextBox_TextChanged);
+            this.searchTextBox.TextChanged += new System.EventHandler(this.SearchTextBox_TextChanged);
             // 
             // pictureBoxClose
             // 
