@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Donor_manager\DonorManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="User_manager\UserManager.cs" />
   </ItemGroup>
@@ -68,6 +69,7 @@
       <Name>VenousPluck.Repository</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

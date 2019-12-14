@@ -25,3 +25,4 @@ D:\Projects\VenousPluck\bin\Debug\VenousPluck.Repository.dll.config
 D:\Projects\VenousPluck\bin\Debug\VenousPluck.Persistance.pdb
 D:\Projects\VenousPluck\bin\Debug\VenousPluck.Persistance.dll.config
 D:\Projects\VenousPluck\obj\Debug\VenousPluck.UI.UserForm.resources
+D:\Projects\VenousPluck\obj\Debug\VenousPluck.UI.DonorForm.resources

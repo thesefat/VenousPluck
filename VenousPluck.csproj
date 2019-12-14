@@ -64,6 +64,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="UI\DonorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\DonorForm.Designer.cs">
+      <DependentUpon>DonorForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\HomeForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,6 +89,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>VenousPluckDataSet4.xsd</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UI\DonorForm.resx">
+      <DependentUpon>DonorForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\HomeForm.resx">
       <DependentUpon>HomeForm.cs</DependentUpon>
     </EmbeddedResource>
