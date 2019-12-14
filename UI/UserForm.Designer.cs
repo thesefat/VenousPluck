@@ -67,16 +67,14 @@
             this.imageDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.usersBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.venousPluckDataSet = new VenousPluck.VenousPluckDataSet();
+          
             this.label12 = new System.Windows.Forms.Label();
             this.userSearchTextBox = new System.Windows.Forms.TextBox();
-            this.usersTableAdapter = new VenousPluck.VenousPluckDataSetTableAdapters.UsersTableAdapter();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.venousPluckDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -423,12 +421,10 @@
             // usersBindingSource
             // 
             this.usersBindingSource.DataMember = "Users";
-            this.usersBindingSource.DataSource = this.venousPluckDataSet;
             // 
             // venousPluckDataSet
             // 
-            this.venousPluckDataSet.DataSetName = "VenousPluckDataSet";
-            this.venousPluckDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+         
             // 
             // label12
             // 
@@ -449,7 +445,7 @@
             // 
             // usersTableAdapter
             // 
-            this.usersTableAdapter.ClearBeforeFill = true;
+           
             // 
             // UserForm
             // 
@@ -495,7 +491,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.userPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.userDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.venousPluckDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -530,9 +525,7 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox userSearchTextBox;
         private System.Windows.Forms.PictureBox pictureBoxClose;
-        private VenousPluckDataSet venousPluckDataSet;
         private System.Windows.Forms.BindingSource usersBindingSource;
-        private VenousPluckDataSetTableAdapters.UsersTableAdapter usersTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn firstNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn lastNameDataGridViewTextBoxColumn;

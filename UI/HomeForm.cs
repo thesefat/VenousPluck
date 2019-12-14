@@ -64,11 +64,5 @@ namespace VenousPluck
             searchGridView.DataSource = null;
             searchGridView.DataSource = userVm;
         }
-
-        private void DonorsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            DonorForm donorForm = new DonorForm();
-            donorForm.Show();
-        }
     }
 }

@@ -118,10 +118,7 @@
             // 
             // donorsToolStripMenuItem
             // 
-            this.donorsToolStripMenuItem.Name = "donorsToolStripMenuItem";
-            this.donorsToolStripMenuItem.Size = new System.Drawing.Size(107, 35);
-            this.donorsToolStripMenuItem.Text = "Donors";
-            this.donorsToolStripMenuItem.Click += new System.EventHandler(this.DonorsToolStripMenuItem_Click);
+
             // 
             // panel1
             // 
