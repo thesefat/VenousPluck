@@ -452,6 +452,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
+            this.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.ClientSize = new System.Drawing.Size(1657, 774);
             this.Controls.Add(this.donorDataGridView);
             this.Controls.Add(this.DonorDeleteButton);

@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Donor_manager\DonorManager.cs" />
+    <Compile Include="Login_manager\LoginManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="User_manager\UserManager.cs" />
   </ItemGroup>
