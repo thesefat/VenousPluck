@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using VenousPluck.Manager.Login_manager;
+using VenousPluck.Manager.User_manager;
 using VenousPluck.Models.ViewModels;
 
 namespace VenousPluck.UI
@@ -15,12 +16,16 @@ namespace VenousPluck.UI
     public partial class LoginForm : Form
     {
         private readonly LoginManager _loginManager;
-        private Login loginModel = new Login();
+        private readonly UserManager _userManager;
+        private readonly Login loginModel = new Login();
+
+        public static string loggedInUser;
 
         public LoginForm()
         {
             InitializeComponent();
             _loginManager = new LoginManager();
+            _userManager = new UserManager();
         }
 
         private void PictureBoxClose_Click(object sender, EventArgs e)
@@ -40,17 +45,18 @@ namespace VenousPluck.UI
                     loginModel.UserName = userName;
                     loginModel.Password = password;
                     bool verificationCheck = _loginManager.VerifyLogin(loginModel);
+                    loggedInUser = loginModel.UserName;
+                    long id = _userManager.GetUserIdByName(loggedInUser);
 
                     if (verificationCheck)
                     {
-                        MessageBox.Show("Login Success");
                         HomeForm homeForm = new HomeForm();
                         homeForm.Show();
                         this.Hide();
                     }
                     else
                     {
-                        MessageBox.Show("Login Failed! \n Try Again.");
+                        throw new Exception();
                     }
                 }
             }

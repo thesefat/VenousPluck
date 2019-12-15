@@ -82,6 +82,21 @@ namespace VenousPluck.Repository.UserOperation
             return _db.Users.FirstOrDefault(c => c.Id == id);
         }
 
+        public long GetUserIdByName(string name)
+        {
+            long id = 0;
+            var datalist = _db.Users.AsQueryable();
+            foreach (var item in datalist)
+            {
+                if (item.UserName == name)
+                {
+                    id = item.Id;
+                }
+            }
+
+            return id;
+        }
+
         public bool Update(User model)
         {
             try

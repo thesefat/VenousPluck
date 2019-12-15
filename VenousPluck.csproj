@@ -64,16 +64,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DonorsViewDataSet.Designer.cs">
+    <Compile Include="DonorsDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DonorsViewDataSet.xsd</DependentUpon>
+      <DependentUpon>DonorsDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="UI\DonorForm.cs">
+    <Compile Include="UI\DonorFrom.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\DonorForm.Designer.cs">
-      <DependentUpon>DonorForm.cs</DependentUpon>
+    <Compile Include="UI\DonorFrom.Designer.cs">
+      <DependentUpon>DonorFrom.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\HomeForm.cs">
       <SubType>Form</SubType>
@@ -95,8 +95,8 @@
     <Compile Include="UI\UserForm.Designer.cs">
       <DependentUpon>UserForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="UI\DonorForm.resx">
-      <DependentUpon>DonorForm.cs</DependentUpon>
+    <EmbeddedResource Include="UI\DonorFrom.resx">
+      <DependentUpon>DonorFrom.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\HomeForm.resx">
       <DependentUpon>HomeForm.cs</DependentUpon>
@@ -118,16 +118,16 @@
       <DependentUpon>UserForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include=".editorconfig" />
-    <None Include="DonorsViewDataSet.xsc">
-      <DependentUpon>DonorsViewDataSet.xsd</DependentUpon>
+    <None Include="DonorsDataSet.xsc">
+      <DependentUpon>DonorsDataSet.xsd</DependentUpon>
     </None>
-    <None Include="DonorsViewDataSet.xsd">
+    <None Include="DonorsDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DonorsViewDataSet.Designer.cs</LastGenOutput>
+      <LastGenOutput>DonorsDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="DonorsViewDataSet.xss">
-      <DependentUpon>DonorsViewDataSet.xsd</DependentUpon>
+    <None Include="DonorsDataSet.xss">
+      <DependentUpon>DonorsDataSet.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

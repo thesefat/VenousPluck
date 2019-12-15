@@ -1,8 +1,10 @@
 D:\Projects\VenousPluck\obj\Debug\VenousPluck.csprojAssemblyReference.cache
 D:\Projects\VenousPluck\obj\Debug\VenousPluck.HomeForm.resources
 D:\Projects\VenousPluck\obj\Debug\VenousPluck.Properties.Resources.resources
+D:\Projects\VenousPluck\obj\Debug\VenousPluck.UI.LoginForm.resources
 D:\Projects\VenousPluck\obj\Debug\VenousPluck.UI.UserForm.resources
 D:\Projects\VenousPluck\obj\Debug\VenousPluck.csproj.GenerateResource.cache
+D:\Projects\VenousPluck\obj\Debug\VenousPluck.UI.DonorFrom.resources
 D:\Projects\VenousPluck\bin\Debug\VenousPluck.exe.config
 D:\Projects\VenousPluck\bin\Debug\VenousPluck.exe
 D:\Projects\VenousPluck\bin\Debug\VenousPluck.pdb
@@ -25,5 +27,3 @@ D:\Projects\VenousPluck\bin\Debug\VenousPluck.Persistance.dll.config
 D:\Projects\VenousPluck\obj\Debug\VenousPluck.csproj.CopyComplete
 D:\Projects\VenousPluck\obj\Debug\VenousPluck.exe
 D:\Projects\VenousPluck\obj\Debug\VenousPluck.pdb
-D:\Projects\VenousPluck\obj\Debug\VenousPluck.UI.DonorForm.resources
-D:\Projects\VenousPluck\obj\Debug\VenousPluck.UI.LoginForm.resources

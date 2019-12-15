@@ -8,4 +8,3 @@ D:\Projects\VenousPluck\VenousPluck.Models\bin\Debug\EntityFramework.SqlServer.x
 D:\Projects\VenousPluck\VenousPluck.Models\obj\Debug\VenousPluck.Models.csproj.CopyComplete
 D:\Projects\VenousPluck\VenousPluck.Models\obj\Debug\VenousPluck.Models.dll
 D:\Projects\VenousPluck\VenousPluck.Models\obj\Debug\VenousPluck.Models.pdb
-D:\Projects\VenousPluck\VenousPluck.Models\obj\Debug\VenousPluck.Models.csprojAssemblyReference.cache

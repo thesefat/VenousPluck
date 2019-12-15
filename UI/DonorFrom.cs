@@ -9,30 +9,37 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using VenousPluck.Manager.Donor_manager;
+using VenousPluck.Manager.User_manager;
 using VenousPluck.Models.BaseModels;
 
 namespace VenousPluck.UI
 {
-    public partial class DonorForm : Form
+    public partial class DonorFrom : Form
     {
         public string paths = Application.StartupPath.Substring(0, (Application.StartupPath.Length - 10));
         public string ImageFile = "No_Image.jpg";
         private Donor donor = new Donor();
         private readonly DonorManager _donorManager;
+        private readonly UserManager _userManager;
 
-        public DonorForm()
+        public DonorFrom()
         {
             InitializeComponent();
             _donorManager = new DonorManager();
+            _userManager = new UserManager();
         }
 
-        private void DonorForm_Load(object sender, EventArgs e)
+        private void DonorFrom_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'donorsViewDataSet.Donors' table. You can move, or remove it, as needed.
-            this.donorsTableAdapter.Fill(this.donorsViewDataSet.Donors);
+            // TODO: This line of code loads data into the 'donorsDataSet.Donors' table. You can move, or remove it, as needed.
+
+            this.donorsTableAdapter.Fill(this.donorsDataSet.Donors);
         }
 
-        #region Upload Image to File Storage
+        private void PictureBoxClose_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
 
         private void DonorImageChooseButton_Click(object sender, EventArgs e)
         {
@@ -74,166 +81,6 @@ namespace VenousPluck.UI
             }
         }
 
-        #endregion Upload Image to File Storage
-
-        #region Clear From for Refresh Text Box
-
-        public void ClearForm()
-        {
-            try
-            {
-                donorFirstNameTextBox.Text = "";
-                donorLastNameTextBox.Text = "";
-                donorUserNameTextBox.Text = "";
-                donorPasswordTextBox.Text = "";
-                donorEmailTextBox.Text = "";
-                donorAddressTextBox.Text = "";
-                donorBloodGroupTextBox.Text = "";
-                donorContactNoTextBox.Text = "";
-                string imgPath = paths + "\\images\\No_Image.jpg";
-                donorPictureBox.Image = new Bitmap(imgPath);
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
-        }
-
-        #endregion Clear From for Refresh Text Box
-
-        #region Data Grid View Source Update
-
-        public void DataSourceUpdate()
-        {
-            try
-            {
-                var datalist = _donorManager.GetAllDonor();
-                donorsBindingSource.DataSource = null;
-                donorsBindingSource.DataSource = datalist;
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
-        }
-
-        #endregion Data Grid View Source Update
-
-        #region Application Close
-
-        private void PictureBoxClose_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                Close();
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
-        }
-
-        #endregion Application Close
-
-        #region Form Fill Up By Selected User
-
-        public void FormFillUpBySelectedUser(Donor dn)
-        {
-            try
-            {
-                donorFirstNameTextBox.Text = dn.FirstName;
-                donorLastNameTextBox.Text = dn.LastName;
-                donorUserNameTextBox.Text = dn.UserName;
-                donorPasswordTextBox.Text = dn.Password;
-                donorEmailTextBox.Text = dn.Email;
-                donorAddressTextBox.Text = dn.Address;
-                donorBloodGroupTextBox.Text = dn.BloodGroup;
-                donorContactNoTextBox.Text = dn.ContactNo;
-                GetImageFromFile(dn.Image.ToString());
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
-        }
-
-        #endregion Form Fill Up By Selected User
-
-        #region Get Image From File
-
-        public void GetImageFromFile(string _imgName)
-        {
-            try
-            {
-                if (_imgName != "No_Image.jpg")
-                {
-                    string imgPath = paths + "\\images\\" + _imgName;
-                    donorPictureBox.Image = new Bitmap(imgPath);
-                    return;
-                }
-
-                if (_imgName == "No_Image.jpg")
-                {
-                    string imgPath = paths + "\\images\\" + _imgName;
-                    donorPictureBox.Image = new Bitmap(imgPath);
-                    return;
-                }
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
-        }
-
-        #endregion Get Image From File
-
-        #region Delete Donor
-
-        private void DonorDeleteButton_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (MessageBox.Show("Are You Sure to Delete This Record ?", "Venous Pluck", MessageBoxButtons.YesNoCancel) == DialogResult.Yes)
-                {
-                    _donorManager.Remove(donor);
-                    DataSourceUpdate();
-                    ClearForm();
-                    DonorDeleteButton.Hide();
-                    DonorCreateButton.Text = "Create";
-                    return;
-                }
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
-        }
-
-        #endregion Delete Donor
-
-        #region Select Donor From Grid
-
-        private void DonorDataGridView_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            try
-            {
-                int rowIndex = e.RowIndex;
-                string getId = donorDataGridView.Rows[rowIndex].Cells[0].Value.ToString();
-                donor = _donorManager.GetDonorById(Convert.ToInt64(getId));
-                FormFillUpBySelectedUser(donor);
-                DonorCreateButton.Text = "Update";
-                DonorDeleteButton.Show();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        #endregion Select Donor From Grid
-
-        #region Donor Create & Update
-
         private void DonorCreateButton_Click(object sender, EventArgs e)
         {
             try
@@ -247,6 +94,13 @@ namespace VenousPluck.UI
                 donor.AddedDate = DateTime.Now;
                 donor.BloodGroup = donorBloodGroupTextBox.Text;
                 donor.ContactNo = donorContactNoTextBox.Text;
+
+                //AddedByUser
+
+                string loggedInUser = LoginForm.loggedInUser;
+                long userId = _userManager.GetUserIdByName(loggedInUser);
+                donor.AddedBy = userId;
+
                 donor.Image = ImageFile;
 
                 #region Update
@@ -300,6 +154,136 @@ namespace VenousPluck.UI
             }
         }
 
-        #endregion Donor Create & Update
+        #region Clear From for Refresh Text Box
+
+        public void ClearForm()
+        {
+            try
+            {
+                donorFirstNameTextBox.Text = "";
+                donorLastNameTextBox.Text = "";
+                donorUserNameTextBox.Text = "";
+                donorPasswordTextBox.Text = "";
+                donorEmailTextBox.Text = "";
+                donorAddressTextBox.Text = "";
+                donorBloodGroupTextBox.Text = "";
+                donorContactNoTextBox.Text = "";
+                string imgPath = paths + "\\images\\No_Image.jpg";
+                donorPictureBox.Image = new Bitmap(imgPath);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        #endregion Clear From for Refresh Text Box
+
+        #region Data Grid View Source Update
+
+        public void DataSourceUpdate()
+        {
+            try
+            {
+                var datalist = _donorManager.GetAllDonor();
+                donorsBindingSource.DataSource = null;
+                donorsBindingSource.DataSource = datalist;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        #endregion Data Grid View Source Update
+
+        #region Form Fill Up By Selected User
+
+        public void FormFillUpBySelectedUser(Donor dn)
+        {
+            try
+            {
+                donorFirstNameTextBox.Text = dn.FirstName;
+                donorLastNameTextBox.Text = dn.LastName;
+                donorUserNameTextBox.Text = dn.UserName;
+                donorPasswordTextBox.Text = dn.Password;
+                donorEmailTextBox.Text = dn.Email;
+                donorAddressTextBox.Text = dn.Address;
+                donorBloodGroupTextBox.Text = dn.BloodGroup;
+                donorContactNoTextBox.Text = dn.ContactNo;
+                GetImageFromFile(dn.Image.ToString());
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        #endregion Form Fill Up By Selected User
+
+        #region Get Image From File
+
+        public void GetImageFromFile(string _imgName)
+        {
+            try
+            {
+                if (_imgName != "No_Image.jpg")
+                {
+                    string imgPath = paths + "\\images\\" + _imgName;
+                    donorPictureBox.Image = new Bitmap(imgPath);
+                    return;
+                }
+
+                if (_imgName == "No_Image.jpg")
+                {
+                    string imgPath = paths + "\\images\\" + _imgName;
+                    donorPictureBox.Image = new Bitmap(imgPath);
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        #endregion Get Image From File
+
+        private void DonorDataGridView_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            try
+            {
+                int rowIndex = e.RowIndex;
+                string getId = donorDataGridView.Rows[rowIndex].Cells[0].Value.ToString();
+                donor = _donorManager.GetDonorById(Convert.ToInt64(getId));
+                FormFillUpBySelectedUser(donor);
+                DonorCreateButton.Text = "Update";
+                DonorDeleteButton.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void DonorDeleteButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (MessageBox.Show("Are You Sure to Delete This Record ?", "Venous Pluck", MessageBoxButtons.YesNoCancel) == DialogResult.Yes)
+                {
+                    _donorManager.Remove(donor);
+                    DataSourceUpdate();
+                    ClearForm();
+                    DonorDeleteButton.Hide();
+                    DonorCreateButton.Text = "Create";
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }

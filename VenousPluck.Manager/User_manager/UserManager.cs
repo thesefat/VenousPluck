@@ -50,6 +50,12 @@ namespace VenousPluck.Manager.User_manager
             return data;
         }
 
+        public long GetUserIdByName(string name)
+        {
+            var data = _userRepository.GetUserIdByName(name);
+            return data;
+        }
+
         public bool Remove(User model)
         {
             return _userRepository.Remove(model);

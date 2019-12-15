@@ -13,6 +13,7 @@ D:\Projects\VenousPluck\VenousPluck.Persistance\obj\Debug\VenousPluck.Persistanc
 D:\Projects\VenousPluck\VenousPluck.Persistance\obj\Debug\VenousPluck.Persistance.Migrations.ImagePropertyAddedToModel.resources
 D:\Projects\VenousPluck\VenousPluck.Persistance\obj\Debug\VenousPluck.Persistance.Migrations.EmailPropertyAdded.resources
 D:\Projects\VenousPluck\VenousPluck.Persistance\obj\Debug\VenousPluck.Persistance.Migrations.AddressPropertyExcluded.resources
+D:\Projects\VenousPluck\VenousPluck.Persistance\obj\Debug\VenousPluck.Persistance.Migrations.DonorAddedByPropertyAdded.resources
 D:\Projects\VenousPluck\VenousPluck.Persistance\obj\Debug\VenousPluck.Persistance.csproj.GenerateResource.cache
 D:\Projects\VenousPluck\VenousPluck.Persistance\obj\Debug\VenousPluck.Persistance.csproj.CopyComplete
 D:\Projects\VenousPluck\VenousPluck.Persistance\obj\Debug\VenousPluck.Persistance.dll

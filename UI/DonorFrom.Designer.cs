@@ -1,6 +1,6 @@
 ﻿namespace VenousPluck.UI
 {
-    partial class DonorForm
+    partial class DonorFrom
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DonorForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DonorFrom));
             this.DonorDeleteButton = new System.Windows.Forms.Button();
             this.DonorCreateButton = new System.Windows.Forms.Button();
             this.DonorImageChooseButton = new System.Windows.Forms.Button();
@@ -41,7 +41,7 @@
             this.donorEmailTextBox = new System.Windows.Forms.TextBox();
             this.donorContactNoTextBox = new System.Windows.Forms.TextBox();
             this.donorLastNameTextBox = new System.Windows.Forms.TextBox();
-            this.donorSearchTextBox = new System.Windows.Forms.TextBox();
+            this.userSearchTextBox = new System.Windows.Forms.TextBox();
             this.donorFirstNameTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -57,6 +57,9 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBoxClose = new System.Windows.Forms.PictureBox();
             this.donorDataGridView = new System.Windows.Forms.DataGridView();
+            this.donorsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.donorsDataSet = new VenousPluck.DonorsDataSet();
+            this.donorsTableAdapter = new VenousPluck.DonorsDataSetTableAdapters.DonorsTableAdapter();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.firstNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lastNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -68,21 +71,19 @@
             this.bloodGroupDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.imageDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.donorsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.donorsViewDataSet = new VenousPluck.DonorsViewDataSet();
-            this.donorsTableAdapter = new VenousPluck.DonorsViewDataSetTableAdapters.DonorsTableAdapter();
+            this.addedByDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.donorPictureBox)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.donorDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.donorsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.donorsViewDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.donorsDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // DonorDeleteButton
             // 
             this.DonorDeleteButton.Font = new System.Drawing.Font("Microsoft YaHei UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DonorDeleteButton.Location = new System.Drawing.Point(181, 714);
+            this.DonorDeleteButton.Location = new System.Drawing.Point(181, 722);
             this.DonorDeleteButton.Name = "DonorDeleteButton";
             this.DonorDeleteButton.Size = new System.Drawing.Size(110, 53);
             this.DonorDeleteButton.TabIndex = 28;
@@ -93,7 +94,7 @@
             // DonorCreateButton
             // 
             this.DonorCreateButton.Font = new System.Drawing.Font("Microsoft YaHei UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DonorCreateButton.Location = new System.Drawing.Point(332, 714);
+            this.DonorCreateButton.Location = new System.Drawing.Point(332, 722);
             this.DonorCreateButton.Name = "DonorCreateButton";
             this.DonorCreateButton.Size = new System.Drawing.Size(120, 53);
             this.DonorCreateButton.TabIndex = 27;
@@ -104,7 +105,7 @@
             // DonorImageChooseButton
             // 
             this.DonorImageChooseButton.Font = new System.Drawing.Font("Agency FB", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DonorImageChooseButton.Location = new System.Drawing.Point(387, 63);
+            this.DonorImageChooseButton.Location = new System.Drawing.Point(398, 64);
             this.DonorImageChooseButton.Name = "DonorImageChooseButton";
             this.DonorImageChooseButton.Size = new System.Drawing.Size(68, 36);
             this.DonorImageChooseButton.TabIndex = 26;
@@ -115,7 +116,7 @@
             // donorPictureBox
             // 
             this.donorPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("donorPictureBox.Image")));
-            this.donorPictureBox.Location = new System.Drawing.Point(181, 56);
+            this.donorPictureBox.Location = new System.Drawing.Point(181, 64);
             this.donorPictureBox.Name = "donorPictureBox";
             this.donorPictureBox.Size = new System.Drawing.Size(200, 183);
             this.donorPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -125,7 +126,7 @@
             // donorUserNameTextBox
             // 
             this.donorUserNameTextBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.donorUserNameTextBox.Location = new System.Drawing.Point(181, 550);
+            this.donorUserNameTextBox.Location = new System.Drawing.Point(181, 558);
             this.donorUserNameTextBox.Name = "donorUserNameTextBox";
             this.donorUserNameTextBox.Size = new System.Drawing.Size(271, 39);
             this.donorUserNameTextBox.TabIndex = 23;
@@ -133,7 +134,7 @@
             // donorAddressTextBox
             // 
             this.donorAddressTextBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.donorAddressTextBox.Location = new System.Drawing.Point(181, 489);
+            this.donorAddressTextBox.Location = new System.Drawing.Point(181, 497);
             this.donorAddressTextBox.Name = "donorAddressTextBox";
             this.donorAddressTextBox.Size = new System.Drawing.Size(271, 39);
             this.donorAddressTextBox.TabIndex = 22;
@@ -141,7 +142,7 @@
             // donorBloodGroupTextBox
             // 
             this.donorBloodGroupTextBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.donorBloodGroupTextBox.Location = new System.Drawing.Point(181, 669);
+            this.donorBloodGroupTextBox.Location = new System.Drawing.Point(181, 677);
             this.donorBloodGroupTextBox.Name = "donorBloodGroupTextBox";
             this.donorBloodGroupTextBox.Size = new System.Drawing.Size(271, 39);
             this.donorBloodGroupTextBox.TabIndex = 21;
@@ -149,7 +150,7 @@
             // donorPasswordTextBox
             // 
             this.donorPasswordTextBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.donorPasswordTextBox.Location = new System.Drawing.Point(181, 608);
+            this.donorPasswordTextBox.Location = new System.Drawing.Point(181, 616);
             this.donorPasswordTextBox.Name = "donorPasswordTextBox";
             this.donorPasswordTextBox.PasswordChar = '*';
             this.donorPasswordTextBox.Size = new System.Drawing.Size(271, 39);
@@ -158,7 +159,7 @@
             // donorEmailTextBox
             // 
             this.donorEmailTextBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.donorEmailTextBox.Location = new System.Drawing.Point(181, 364);
+            this.donorEmailTextBox.Location = new System.Drawing.Point(181, 372);
             this.donorEmailTextBox.Name = "donorEmailTextBox";
             this.donorEmailTextBox.Size = new System.Drawing.Size(271, 39);
             this.donorEmailTextBox.TabIndex = 19;
@@ -166,7 +167,7 @@
             // donorContactNoTextBox
             // 
             this.donorContactNoTextBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.donorContactNoTextBox.Location = new System.Drawing.Point(181, 431);
+            this.donorContactNoTextBox.Location = new System.Drawing.Point(181, 439);
             this.donorContactNoTextBox.Name = "donorContactNoTextBox";
             this.donorContactNoTextBox.Size = new System.Drawing.Size(271, 39);
             this.donorContactNoTextBox.TabIndex = 18;
@@ -174,23 +175,23 @@
             // donorLastNameTextBox
             // 
             this.donorLastNameTextBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.donorLastNameTextBox.Location = new System.Drawing.Point(181, 303);
+            this.donorLastNameTextBox.Location = new System.Drawing.Point(181, 311);
             this.donorLastNameTextBox.Name = "donorLastNameTextBox";
             this.donorLastNameTextBox.Size = new System.Drawing.Size(271, 39);
             this.donorLastNameTextBox.TabIndex = 24;
             // 
-            // donorSearchTextBox
+            // userSearchTextBox
             // 
-            this.donorSearchTextBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.donorSearchTextBox.Location = new System.Drawing.Point(957, 128);
-            this.donorSearchTextBox.Name = "donorSearchTextBox";
-            this.donorSearchTextBox.Size = new System.Drawing.Size(271, 39);
-            this.donorSearchTextBox.TabIndex = 17;
+            this.userSearchTextBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userSearchTextBox.Location = new System.Drawing.Point(957, 128);
+            this.userSearchTextBox.Name = "userSearchTextBox";
+            this.userSearchTextBox.Size = new System.Drawing.Size(271, 39);
+            this.userSearchTextBox.TabIndex = 17;
             // 
             // donorFirstNameTextBox
             // 
             this.donorFirstNameTextBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.donorFirstNameTextBox.Location = new System.Drawing.Point(181, 245);
+            this.donorFirstNameTextBox.Location = new System.Drawing.Point(181, 253);
             this.donorFirstNameTextBox.Name = "donorFirstNameTextBox";
             this.donorFirstNameTextBox.Size = new System.Drawing.Size(271, 39);
             this.donorFirstNameTextBox.TabIndex = 16;
@@ -202,14 +203,14 @@
             this.label1.ForeColor = System.Drawing.Color.Snow;
             this.label1.Location = new System.Drawing.Point(678, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(320, 54);
+            this.label1.Size = new System.Drawing.Size(303, 54);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Donors Manager";
+            this.label1.Text = "Donor Manager";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(53, 550);
+            this.label11.Location = new System.Drawing.Point(53, 558);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(89, 20);
             this.label11.TabIndex = 14;
@@ -218,7 +219,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(68, 669);
+            this.label9.Location = new System.Drawing.Point(68, 677);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(33, 20);
             this.label9.TabIndex = 13;
@@ -227,7 +228,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(53, 608);
+            this.label8.Location = new System.Drawing.Point(53, 616);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(78, 20);
             this.label8.TabIndex = 12;
@@ -236,7 +237,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(53, 364);
+            this.label5.Location = new System.Drawing.Point(53, 372);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(48, 20);
             this.label5.TabIndex = 11;
@@ -245,7 +246,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(53, 489);
+            this.label7.Location = new System.Drawing.Point(53, 497);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(68, 20);
             this.label7.TabIndex = 10;
@@ -254,7 +255,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(53, 303);
+            this.label4.Location = new System.Drawing.Point(53, 311);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(86, 20);
             this.label4.TabIndex = 9;
@@ -272,7 +273,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(53, 431);
+            this.label6.Location = new System.Drawing.Point(53, 439);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(89, 20);
             this.label6.TabIndex = 7;
@@ -281,7 +282,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(53, 245);
+            this.label3.Location = new System.Drawing.Point(53, 253);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(86, 20);
             this.label3.TabIndex = 6;
@@ -304,7 +305,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1657, 57);
+            this.panel1.Size = new System.Drawing.Size(1672, 57);
             this.panel1.TabIndex = 5;
             // 
             // pictureBoxClose
@@ -321,12 +322,9 @@
             // 
             // donorDataGridView
             // 
-            this.donorDataGridView.AllowUserToResizeColumns = false;
-            this.donorDataGridView.AllowUserToResizeRows = false;
             this.donorDataGridView.AutoGenerateColumns = false;
             this.donorDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.donorDataGridView.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
-            this.donorDataGridView.ColumnHeadersHeight = 36;
+            this.donorDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.donorDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDataGridViewTextBoxColumn,
             this.firstNameDataGridViewTextBoxColumn,
@@ -338,17 +336,30 @@
             this.addedDateDataGridViewTextBoxColumn,
             this.bloodGroupDataGridViewTextBoxColumn,
             this.imageDataGridViewTextBoxColumn,
-            this.emailDataGridViewTextBoxColumn});
-            this.donorDataGridView.Cursor = System.Windows.Forms.Cursors.PanNE;
+            this.emailDataGridViewTextBoxColumn,
+            this.addedByDataGridViewTextBoxColumn});
             this.donorDataGridView.DataSource = this.donorsBindingSource;
-            this.donorDataGridView.GridColor = System.Drawing.SystemColors.InactiveCaption;
-            this.donorDataGridView.Location = new System.Drawing.Point(513, 245);
+            this.donorDataGridView.Location = new System.Drawing.Point(509, 254);
             this.donorDataGridView.Name = "donorDataGridView";
             this.donorDataGridView.RowHeadersWidth = 62;
             this.donorDataGridView.RowTemplate.Height = 28;
-            this.donorDataGridView.Size = new System.Drawing.Size(1119, 517);
+            this.donorDataGridView.Size = new System.Drawing.Size(1111, 510);
             this.donorDataGridView.TabIndex = 29;
             this.donorDataGridView.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DonorDataGridView_RowHeaderMouseDoubleClick);
+            // 
+            // donorsBindingSource
+            // 
+            this.donorsBindingSource.DataMember = "Donors";
+            this.donorsBindingSource.DataSource = this.donorsDataSet;
+            // 
+            // donorsDataSet
+            // 
+            this.donorsDataSet.DataSetName = "DonorsDataSet";
+            this.donorsDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // donorsTableAdapter
+            // 
+            this.donorsTableAdapter.ClearBeforeFill = true;
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -433,27 +444,21 @@
             this.emailDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
             // 
-            // donorsBindingSource
+            // addedByDataGridViewTextBoxColumn
             // 
-            this.donorsBindingSource.DataMember = "Donors";
-            this.donorsBindingSource.DataSource = this.donorsViewDataSet;
+            this.addedByDataGridViewTextBoxColumn.DataPropertyName = "AddedBy";
+            this.addedByDataGridViewTextBoxColumn.HeaderText = "AddedBy";
+            this.addedByDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.addedByDataGridViewTextBoxColumn.Name = "addedByDataGridViewTextBoxColumn";
+            this.addedByDataGridViewTextBoxColumn.Visible = false;
             // 
-            // donorsViewDataSet
-            // 
-            this.donorsViewDataSet.DataSetName = "DonorsViewDataSet";
-            this.donorsViewDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // donorsTableAdapter
-            // 
-            this.donorsTableAdapter.ClearBeforeFill = true;
-            // 
-            // DonorForm
+            // DonorFrom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.ClientSize = new System.Drawing.Size(1657, 774);
+            this.ClientSize = new System.Drawing.Size(1672, 781);
             this.Controls.Add(this.donorDataGridView);
             this.Controls.Add(this.DonorDeleteButton);
             this.Controls.Add(this.DonorCreateButton);
@@ -466,7 +471,7 @@
             this.Controls.Add(this.donorEmailTextBox);
             this.Controls.Add(this.donorContactNoTextBox);
             this.Controls.Add(this.donorLastNameTextBox);
-            this.Controls.Add(this.donorSearchTextBox);
+            this.Controls.Add(this.userSearchTextBox);
             this.Controls.Add(this.donorFirstNameTextBox);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label9);
@@ -480,16 +485,16 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "DonorForm";
-            this.Text = "DonorForm";
-            this.Load += new System.EventHandler(this.DonorForm_Load);
+            this.Name = "DonorFrom";
+            this.Text = "DonorFrom";
+            this.Load += new System.EventHandler(this.DonorFrom_Load);
             ((System.ComponentModel.ISupportInitialize)(this.donorPictureBox)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClose)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.donorDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.donorsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.donorsViewDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.donorsDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -508,7 +513,7 @@
         private System.Windows.Forms.TextBox donorEmailTextBox;
         private System.Windows.Forms.TextBox donorContactNoTextBox;
         private System.Windows.Forms.TextBox donorLastNameTextBox;
-        private System.Windows.Forms.TextBox donorSearchTextBox;
+        private System.Windows.Forms.TextBox userSearchTextBox;
         private System.Windows.Forms.TextBox donorFirstNameTextBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label11;
@@ -523,10 +528,11 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBoxClose;
+        //private Donor donor;
         private System.Windows.Forms.DataGridView donorDataGridView;
-        private DonorsViewDataSet donorsViewDataSet;
+        private DonorsDataSet donorsDataSet;
         private System.Windows.Forms.BindingSource donorsBindingSource;
-        private DonorsViewDataSetTableAdapters.DonorsTableAdapter donorsTableAdapter;
+        private DonorsDataSetTableAdapters.DonorsTableAdapter donorsTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn firstNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn lastNameDataGridViewTextBoxColumn;
@@ -538,5 +544,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn bloodGroupDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn imageDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn addedByDataGridViewTextBoxColumn;
     }
 }

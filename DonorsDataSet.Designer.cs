@@ -20,9 +20,9 @@ namespace VenousPluck {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("DonorsViewDataSet")]
+    [global::System.Xml.Serialization.XmlRootAttribute("DonorsDataSet")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class DonorsViewDataSet : global::System.Data.DataSet {
+    public partial class DonorsDataSet : global::System.Data.DataSet {
         
         private DonorsDataTable tableDonors;
         
@@ -30,7 +30,7 @@ namespace VenousPluck {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public DonorsViewDataSet() {
+        public DonorsDataSet() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace VenousPluck {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        protected DonorsViewDataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected DonorsDataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -127,7 +127,7 @@ namespace VenousPluck {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            DonorsViewDataSet cln = ((DonorsViewDataSet)(base.Clone()));
+            DonorsDataSet cln = ((DonorsDataSet)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -199,9 +199,9 @@ namespace VenousPluck {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "DonorsViewDataSet";
+            this.DataSetName = "DonorsDataSet";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/DonorsViewDataSet.xsd";
+            this.Namespace = "http://tempuri.org/DonorsDataSet.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
             this.tableDonors = new DonorsDataTable();
@@ -225,7 +225,7 @@ namespace VenousPluck {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            DonorsViewDataSet ds = new DonorsViewDataSet();
+            DonorsDataSet ds = new DonorsDataSet();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -300,6 +300,8 @@ namespace VenousPluck {
             private global::System.Data.DataColumn columnImage;
             
             private global::System.Data.DataColumn columnEmail;
+            
+            private global::System.Data.DataColumn columnAddedBy;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -424,6 +426,14 @@ namespace VenousPluck {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn AddedByColumn {
+                get {
+                    return this.columnAddedBy;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -459,7 +469,7 @@ namespace VenousPluck {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public DonorsRow AddDonorsRow(string FirstName, string LastName, string Password, string Address, string ContactNo, string UserName, System.DateTime AddedDate, string BloodGroup, string Image, string Email) {
+            public DonorsRow AddDonorsRow(string FirstName, string LastName, string Password, string Address, string ContactNo, string UserName, System.DateTime AddedDate, string BloodGroup, string Image, string Email, long AddedBy) {
                 DonorsRow rowDonorsRow = ((DonorsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -472,7 +482,8 @@ namespace VenousPluck {
                         AddedDate,
                         BloodGroup,
                         Image,
-                        Email};
+                        Email,
+                        AddedBy};
                 rowDonorsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDonorsRow);
                 return rowDonorsRow;
@@ -513,6 +524,7 @@ namespace VenousPluck {
                 this.columnBloodGroup = base.Columns["BloodGroup"];
                 this.columnImage = base.Columns["Image"];
                 this.columnEmail = base.Columns["Email"];
+                this.columnAddedBy = base.Columns["AddedBy"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -540,6 +552,8 @@ namespace VenousPluck {
                 base.Columns.Add(this.columnImage);
                 this.columnEmail = new global::System.Data.DataColumn("Email", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnEmail);
+                this.columnAddedBy = new global::System.Data.DataColumn("AddedBy", typeof(long), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAddedBy);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnId}, true));
                 this.columnId.AutoIncrement = true;
@@ -558,6 +572,7 @@ namespace VenousPluck {
                 this.columnBloodGroup.MaxLength = 2147483647;
                 this.columnImage.MaxLength = 2147483647;
                 this.columnEmail.MaxLength = 2147483647;
+                this.columnAddedBy.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -625,7 +640,7 @@ namespace VenousPluck {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                DonorsViewDataSet ds = new DonorsViewDataSet();
+                DonorsDataSet ds = new DonorsDataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -866,6 +881,17 @@ namespace VenousPluck {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public long AddedBy {
+                get {
+                    return ((long)(this[this.tableDonors.AddedByColumn]));
+                }
+                set {
+                    this[this.tableDonors.AddedByColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsFirstNameNull() {
                 return this.IsNull(this.tableDonors.FirstNameColumn);
             }
@@ -1008,7 +1034,7 @@ namespace VenousPluck {
         }
     }
 }
-namespace VenousPluck.DonorsViewDataSetTableAdapters {
+namespace VenousPluck.DonorsDataSetTableAdapters {
     
     
     /// <summary>
@@ -1143,18 +1169,20 @@ namespace VenousPluck.DonorsViewDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("BloodGroup", "BloodGroup");
             tableMapping.ColumnMappings.Add("Image", "Image");
             tableMapping.ColumnMappings.Add("Email", "Email");
+            tableMapping.ColumnMappings.Add("AddedBy", "AddedBy");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
             this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Donors] WHERE (([Id] = @Original_Id) AND ([AddedDate] = @Origi" +
-                "nal_AddedDate))";
+                "nal_AddedDate) AND ([AddedBy] = @Original_AddedBy))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.BigInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AddedDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AddedDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AddedBy", global::System.Data.SqlDbType.BigInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AddedBy", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Donors] ([FirstName], [LastName], [Password], [Address], [ContactNo], [UserName], [AddedDate], [BloodGroup], [Image], [Email]) VALUES (@FirstName, @LastName, @Password, @Address, @ContactNo, @UserName, @AddedDate, @BloodGroup, @Image, @Email);
-SELECT Id, FirstName, LastName, Password, Address, ContactNo, UserName, AddedDate, BloodGroup, Image, Email FROM Donors WHERE (Id = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Donors] ([FirstName], [LastName], [Password], [Address], [ContactNo], [UserName], [AddedDate], [BloodGroup], [Image], [Email], [AddedBy]) VALUES (@FirstName, @LastName, @Password, @Address, @ContactNo, @UserName, @AddedDate, @BloodGroup, @Image, @Email, @AddedBy);
+SELECT Id, FirstName, LastName, Password, Address, ContactNo, UserName, AddedDate, BloodGroup, Image, Email, AddedBy FROM Donors WHERE (Id = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FirstName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FirstName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LastName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LastName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -1166,10 +1194,11 @@ SELECT Id, FirstName, LastName, Password, Address, ContactNo, UserName, AddedDat
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BloodGroup", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BloodGroup", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Image", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Image", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Email", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Email", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AddedBy", global::System.Data.SqlDbType.BigInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AddedBy", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Donors] SET [FirstName] = @FirstName, [LastName] = @LastName, [Password] = @Password, [Address] = @Address, [ContactNo] = @ContactNo, [UserName] = @UserName, [AddedDate] = @AddedDate, [BloodGroup] = @BloodGroup, [Image] = @Image, [Email] = @Email WHERE (([Id] = @Original_Id) AND ([AddedDate] = @Original_AddedDate));
-SELECT Id, FirstName, LastName, Password, Address, ContactNo, UserName, AddedDate, BloodGroup, Image, Email FROM Donors WHERE (Id = @Id)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Donors] SET [FirstName] = @FirstName, [LastName] = @LastName, [Password] = @Password, [Address] = @Address, [ContactNo] = @ContactNo, [UserName] = @UserName, [AddedDate] = @AddedDate, [BloodGroup] = @BloodGroup, [Image] = @Image, [Email] = @Email, [AddedBy] = @AddedBy WHERE (([Id] = @Original_Id) AND ([AddedDate] = @Original_AddedDate) AND ([AddedBy] = @Original_AddedBy));
+SELECT Id, FirstName, LastName, Password, Address, ContactNo, UserName, AddedDate, BloodGroup, Image, Email, AddedBy FROM Donors WHERE (Id = @Id)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FirstName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FirstName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LastName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LastName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -1181,8 +1210,10 @@ SELECT Id, FirstName, LastName, Password, Address, ContactNo, UserName, AddedDat
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BloodGroup", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BloodGroup", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Image", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Image", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Email", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Email", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AddedBy", global::System.Data.SqlDbType.BigInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AddedBy", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.BigInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AddedDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AddedDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AddedBy", global::System.Data.SqlDbType.BigInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AddedBy", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.BigInt, 8, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -1200,7 +1231,7 @@ SELECT Id, FirstName, LastName, Password, Address, ContactNo, UserName, AddedDat
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT Id, FirstName, LastName, Password, Address, ContactNo, UserName, AddedDate" +
-                ", BloodGroup, Image, Email FROM dbo.Donors";
+                ", BloodGroup, Image, Email, AddedBy FROM dbo.Donors";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -1208,7 +1239,7 @@ SELECT Id, FirstName, LastName, Password, Address, ContactNo, UserName, AddedDat
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(DonorsViewDataSet.DonorsDataTable dataTable) {
+        public virtual int Fill(DonorsDataSet.DonorsDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -1221,9 +1252,9 @@ SELECT Id, FirstName, LastName, Password, Address, ContactNo, UserName, AddedDat
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual DonorsViewDataSet.DonorsDataTable GetData() {
+        public virtual DonorsDataSet.DonorsDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            DonorsViewDataSet.DonorsDataTable dataTable = new DonorsViewDataSet.DonorsDataTable();
+            DonorsDataSet.DonorsDataTable dataTable = new DonorsDataSet.DonorsDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -1231,14 +1262,14 @@ SELECT Id, FirstName, LastName, Password, Address, ContactNo, UserName, AddedDat
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(DonorsViewDataSet.DonorsDataTable dataTable) {
+        public virtual int Update(DonorsDataSet.DonorsDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(DonorsViewDataSet dataSet) {
+        public virtual int Update(DonorsDataSet dataSet) {
             return this.Adapter.Update(dataSet, "Donors");
         }
         
@@ -1261,9 +1292,10 @@ SELECT Id, FirstName, LastName, Password, Address, ContactNo, UserName, AddedDat
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(long Original_Id, System.DateTime Original_AddedDate) {
+        public virtual int Delete(long Original_Id, System.DateTime Original_AddedDate, long Original_AddedBy) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((long)(Original_Id));
             this.Adapter.DeleteCommand.Parameters[1].Value = ((System.DateTime)(Original_AddedDate));
+            this.Adapter.DeleteCommand.Parameters[2].Value = ((long)(Original_AddedBy));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -1284,7 +1316,7 @@ SELECT Id, FirstName, LastName, Password, Address, ContactNo, UserName, AddedDat
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string FirstName, string LastName, string Password, string Address, string ContactNo, string UserName, System.DateTime AddedDate, string BloodGroup, string Image, string Email) {
+        public virtual int Insert(string FirstName, string LastName, string Password, string Address, string ContactNo, string UserName, System.DateTime AddedDate, string BloodGroup, string Image, string Email, long AddedBy) {
             if ((FirstName == null)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -1340,6 +1372,7 @@ SELECT Id, FirstName, LastName, Password, Address, ContactNo, UserName, AddedDat
             else {
                 this.Adapter.InsertCommand.Parameters[9].Value = ((string)(Email));
             }
+            this.Adapter.InsertCommand.Parameters[10].Value = ((long)(AddedBy));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -1360,7 +1393,7 @@ SELECT Id, FirstName, LastName, Password, Address, ContactNo, UserName, AddedDat
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string FirstName, string LastName, string Password, string Address, string ContactNo, string UserName, System.DateTime AddedDate, string BloodGroup, string Image, string Email, long Original_Id, System.DateTime Original_AddedDate, long Id) {
+        public virtual int Update(string FirstName, string LastName, string Password, string Address, string ContactNo, string UserName, System.DateTime AddedDate, string BloodGroup, string Image, string Email, long AddedBy, long Original_Id, System.DateTime Original_AddedDate, long Original_AddedBy, long Id) {
             if ((FirstName == null)) {
                 this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -1416,9 +1449,11 @@ SELECT Id, FirstName, LastName, Password, Address, ContactNo, UserName, AddedDat
             else {
                 this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Email));
             }
-            this.Adapter.UpdateCommand.Parameters[10].Value = ((long)(Original_Id));
-            this.Adapter.UpdateCommand.Parameters[11].Value = ((System.DateTime)(Original_AddedDate));
-            this.Adapter.UpdateCommand.Parameters[12].Value = ((long)(Id));
+            this.Adapter.UpdateCommand.Parameters[10].Value = ((long)(AddedBy));
+            this.Adapter.UpdateCommand.Parameters[11].Value = ((long)(Original_Id));
+            this.Adapter.UpdateCommand.Parameters[12].Value = ((System.DateTime)(Original_AddedDate));
+            this.Adapter.UpdateCommand.Parameters[13].Value = ((long)(Original_AddedBy));
+            this.Adapter.UpdateCommand.Parameters[14].Value = ((long)(Id));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -1439,8 +1474,8 @@ SELECT Id, FirstName, LastName, Password, Address, ContactNo, UserName, AddedDat
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string FirstName, string LastName, string Password, string Address, string ContactNo, string UserName, System.DateTime AddedDate, string BloodGroup, string Image, string Email, long Original_Id, System.DateTime Original_AddedDate) {
-            return this.Update(FirstName, LastName, Password, Address, ContactNo, UserName, AddedDate, BloodGroup, Image, Email, Original_Id, Original_AddedDate, Original_Id);
+        public virtual int Update(string FirstName, string LastName, string Password, string Address, string ContactNo, string UserName, System.DateTime AddedDate, string BloodGroup, string Image, string Email, long AddedBy, long Original_Id, System.DateTime Original_AddedDate, long Original_AddedBy) {
+            return this.Update(FirstName, LastName, Password, Address, ContactNo, UserName, AddedDate, BloodGroup, Image, Email, AddedBy, Original_Id, Original_AddedDate, Original_AddedBy, Original_Id);
         }
     }
     
@@ -1535,7 +1570,7 @@ SELECT Id, FirstName, LastName, Password, Address, ContactNo, UserName, AddedDat
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateUpdatedRows(DonorsViewDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(DonorsDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             if ((this._donorsTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Donors.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
@@ -1554,7 +1589,7 @@ SELECT Id, FirstName, LastName, Password, Address, ContactNo, UserName, AddedDat
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateInsertedRows(DonorsViewDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(DonorsDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             if ((this._donorsTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Donors.Select(null, null, global::System.Data.DataViewRowState.Added);
@@ -1572,7 +1607,7 @@ SELECT Id, FirstName, LastName, Password, Address, ContactNo, UserName, AddedDat
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateDeletedRows(DonorsViewDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(DonorsDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
             if ((this._donorsTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Donors.Select(null, null, global::System.Data.DataViewRowState.Deleted);
@@ -1614,7 +1649,7 @@ SELECT Id, FirstName, LastName, Password, Address, ContactNo, UserName, AddedDat
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public virtual int UpdateAll(DonorsViewDataSet dataSet) {
+        public virtual int UpdateAll(DonorsDataSet dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }

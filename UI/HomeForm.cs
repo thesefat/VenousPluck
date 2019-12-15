@@ -67,7 +67,7 @@ namespace VenousPluck
 
         private void DonorToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DonorForm donorForm = new DonorForm();
+            DonorFrom donorForm = new DonorFrom();
             donorForm.Show();
         }
     }
