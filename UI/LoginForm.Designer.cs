@@ -39,6 +39,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.RegistrationLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -149,6 +150,18 @@
             this.label6.TabIndex = 9;
             this.label6.Text = "Blood Bank Managment System";
             // 
+            // RegistrationLabel
+            // 
+            this.RegistrationLabel.AutoSize = true;
+            this.RegistrationLabel.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RegistrationLabel.ForeColor = System.Drawing.Color.Tomato;
+            this.RegistrationLabel.Location = new System.Drawing.Point(102, 443);
+            this.RegistrationLabel.Name = "RegistrationLabel";
+            this.RegistrationLabel.Size = new System.Drawing.Size(261, 26);
+            this.RegistrationLabel.TabIndex = 14;
+            this.RegistrationLabel.Text = "Register as new Member ?";
+            this.RegistrationLabel.Click += new System.EventHandler(this.RegistrationLabel_Click);
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -156,6 +169,7 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(980, 566);
+            this.Controls.Add(this.RegistrationLabel);
             this.Controls.Add(this.LoginButton);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label2);
@@ -189,5 +203,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label RegistrationLabel;
     }
 }

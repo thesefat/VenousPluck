@@ -65,5 +65,12 @@ namespace VenousPluck.UI
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void RegistrationLabel_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            RegistrationForm registrationForm = new RegistrationForm();
+            registrationForm.Show();
+        }
     }
 }

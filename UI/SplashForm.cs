@@ -21,10 +21,10 @@ namespace VenousPluck.UI
 
         private void TimerSplash_Tick(object sender, EventArgs e)
         {
-            timerSplash.Interval = 20;
-            panelBGFont.Width += 5;
+            timerSplash.Interval = 30;
+            panelBGFont.Width += 7;
             move += 5;
-            if (move == 500)
+            if (move == 450)
             {
                 timerSplash.Stop();
                 this.Hide();
